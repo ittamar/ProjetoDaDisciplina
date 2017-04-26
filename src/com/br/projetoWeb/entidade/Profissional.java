@@ -2,11 +2,14 @@ package com.br.projetoWeb.entidade;
 
 public class Profissional extends Entidade {
 	  private long codigoDoConselho;
+	  private long cpf;
 	  
 	  //
 	  // Constructors
 	  //
 	  public Profissional () { };
+	  
+	  
 	  
 	  //
 	  // Methods
@@ -16,8 +19,20 @@ public class Profissional extends Entidade {
 	  //
 	  // Accessor methods
 	  //
+       
+	  public long getCpf() {
+		return cpf;
+	}
 
-	  /**
+
+
+	public void setCpf(long cpf) {
+		this.cpf = cpf;
+	}
+
+
+
+	/**
 	   * Set the value of codigoDoConselho
 	   * @param newVar the new value of codigoDoConselho
 	   */

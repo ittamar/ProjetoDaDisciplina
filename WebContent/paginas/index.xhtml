@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Insert title here</title>
-</head>
-<body>
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Policlinica Web</title>
+	<link href="${facesContext.externalContext.requestContextPath}/css/login.css"
+		rel="stylesheet" type="text/css" media="screen" />
+</h:head>
+<h:body>
 
-</body>
+	<div id="header">
+		<h1>Policlinica Web</h1>
+	</div>
+
+	<div id="menu"></div>
+
+	<div id="contet">
+		<h:form>
+			<p:panel header="Pesquisar">
+				<h:panelGrid columns="2" cellpadding="5">
+					<h:outputLabel value="Buscar por profissional" for="input1" />
+					<p:inputText id="input1" required="true" />
+					<p:message for="input1" />
+					<h:outputText />
+					<h:outputLabel value="Filtro" />
+					<h:selectOneMenu value="selecionar por" required="true">
+                       <f:selectItem itemLabel="nome"/>
+                        <f:selectItem itemLabel="profissão"/>
+                         <f:selectItem itemLabel="especialidade"/>
+					</h:selectOneMenu>
+
+				</h:panelGrid>
+
+
+			</p:panel>
+		</h:form>
+	</div>
+
+	<div id="footer"></div>
+
+</h:body>
 </html>

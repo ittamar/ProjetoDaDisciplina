@@ -1,7 +1,16 @@
 package com.br.projetoWeb.entidade;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table (name="entidade")
 public class Entidade {
-	
+	   @Id
+	   @GeneratedValue//paraou aqui pesquisar sobre chave candidata
+	 // private long cpf;
 	  private String nome;
 	  private String endereco;
 	  private long telefone;
@@ -10,7 +19,6 @@ public class Entidade {
 	  private String especialidade;
 	  private String comentario;
 	  private String dataCadastro;
-	  private long cpf;
 	  private long cnpj;
 	  private String login;
 	  private String senha;
@@ -161,18 +169,18 @@ public class Entidade {
 	   * Set the value of cpf
 	   * @param newVar the new value of cpf
 	   */
-	  private void setCpf (long newVar) {
+	 /* private void setCpf (long newVar) {
 	    cpf = newVar;
 	  }
 
-	  /**
+	  *//**
 	   * Get the value of cpf
 	   * @return the value of cpf
-	   */
+	   *//*
 	  private long getCpf () {
 	    return cpf;
 	  }
-
+*/
 	  /**
 	   * Set the value of cnpj
 	   * @param newVar the new value of cnpj
