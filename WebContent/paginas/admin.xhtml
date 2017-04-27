@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Administrador</title>
+</h:head>
+<h:body>
+
+	<h:form>
+		<!-- inseri o campo de imagem e comentários -->
+		<p:panelGrid columns="2">
+
+			<f:facet name="header">Cadastrar Funcionário</f:facet>
+			<h:outputLabel for="nome" value="nome" />
+			<h:inputText id="nome" />
+			<h:outputLabel for="senha" value="endereço" />
+			<h:inputSecret value="" id="end" />
+			<h:outputLabel for="telefone" value="telefone" />
+			<h:inputText id="telefone" />
+			<h:outputLabel for="dp" value="Descrição Profissional" />
+			<h:inputText id="dp" />
+			<h:outputLabel for="profissao" value="Profissão" />
+			<h:inputText id="profissao" />
+			<h:outputLabel for="especialidade" value="Especialidades" />
+			<h:inputText id="especialidade" />
+			<h:outputLabel for="dt" value="Data do Cadastro" />
+			<h:inputText id="dt" />
+
+
+		</p:panelGrid>
+		<h:commandButton value="Adicionar" />
+		<h:commandButton value="Alterar" />
+		<h:commandButton value="Remover" />
+
+
+	</h:form>
+</h:body>
+</html>
