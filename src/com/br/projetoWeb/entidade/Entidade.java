@@ -19,7 +19,7 @@ public class Entidade {
 	  private String especialidade;
 	  private String comentario;
 	  private String dataCadastro;
-	  private long cnpj;
+	 
 	  private String login;
 	  private String senha;
 	  
@@ -181,22 +181,7 @@ public class Entidade {
 	    return cpf;
 	  }
 */
-	  /**
-	   * Set the value of cnpj
-	   * @param newVar the new value of cnpj
-	   */
-	  private void setCnpj (long newVar) {
-	    cnpj = newVar;
-	  }
-
-	  /**
-	   * Get the value of cnpj
-	   * @return the value of cnpj
-	   */
-	  private long getCnpj () {
-	    return cnpj;
-	  }
-
+	 
 	  /**
 	   * Set the value of login
 	   * @param newVar the new value of login
