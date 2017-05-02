@@ -3,41 +3,74 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Administrador</title>
 </h:head>
 <h:body>
 
-	<h:form>
-		<!-- inseri o campo de imagem e comentários -->
-		<p:panelGrid columns="2">
-
-			<f:facet name="header">Cadastrar Funcionário</f:facet>
-			<h:outputLabel for="nome" value="nome" />
-			<h:inputText id="nome" />
-			<h:outputLabel for="senha" value="endereço" />
-			<h:inputSecret value="" id="end" />
-			<h:outputLabel for="telefone" value="telefone" />
-			<h:inputText id="telefone" />
-			<h:outputLabel for="dp" value="Descrição Profissional" />
-			<h:inputText id="dp" />
-			<h:outputLabel for="profissao" value="Profissão" />
-			<h:inputText id="profissao" />
-			<h:outputLabel for="especialidade" value="Especialidades" />
-			<h:inputText id="especialidade" />
-			<h:outputLabel for="dt" value="Data do Cadastro" />
-			<h:inputText id="dt" />
 
 
-		</p:panelGrid>
-		<h:commandButton value="Adicionar" />
-		<h:commandButton value="Alterar" />
-		<h:commandButton value="Remover" />
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north" size="100" resizable="true"
+			closable="true" collapsible="true">
+			<center> <font size="6">Administrador</font></center>
+		</p:layoutUnit>
 
 
-	</h:form>
+
+
+
+		<p:layoutUnit position="west" resizable="true" size="200" minSize="40"
+			maxSize="200">
+			<h:form style="">
+				<p:menu>
+					<p:submenu label="Cadastro" position="center">
+						<p:menuitem value="Adicionar funcionário" />
+						<p:menuitem value="Remover funcionário" />
+						<p:menuitem value="Alterar dados" />
+					</p:submenu>
+
+				</p:menu>
+			</h:form>
+
+		</p:layoutUnit>
+
+		<p:layoutUnit position="center">
+			<p:panel header="Cadastro de Funcionário">
+
+				<h:panelGrid columns="2" columnClasses="label,value">
+
+					<h:outputLabel value="Nome" />
+					<p:inputText label="nome" />
+					<h:outputLabel value="Endereço" />
+					<p:inputText label="endereço" />
+					<h:outputLabel value="Telefone" />
+					<p:inputMask mask="(99)9999-9999" />
+					<h:outputLabel value="Cpf" />
+					<p:inputText label="cpf" />
+					<h:outputLabel value="Código do Conselho" />
+					<p:inputText label="cc" />
+					<h:outputLabel value="Descrição Profissional" />
+					<p:inputText label="dp" />
+					<h:outputLabel value="Profissão" />
+					<p:inputText label="profissão" />
+					<h:outputLabel value="Especialidade" />
+					<p:inputText label="Especialidade" />
+					<h:outputLabel value="Data do Cadastro" />
+					<p:inputMask mask="99/99/9999" />
+					<p:commandButton value="Cadastrar" />
+				</h:panelGrid>
+			</p:panel>
+
+
+		</p:layoutUnit>
+	</p:layout>
+
+
+
+
 </h:body>
 </html>
