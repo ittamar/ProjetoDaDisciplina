@@ -5,43 +5,15 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Policlinica Web</title>
-	<link href="${facesContext.externalContext.requestContextPath}/css/login.css"
-		rel="stylesheet" type="text/css" media="screen" />
-</h:head>
-<h:body>
-
-	<div id="header">
-		<h1>Policlinica Web</h1>
-	</div>
-
-	<div id="menu"></div>
-
-	<div id="contet">
-		<h:form>
-			<p:panel header="Pesquisar">
-				<h:panelGrid columns="2" cellpadding="5">
-					<h:outputLabel value="Buscar por profissional" for="input1" />
-					<p:inputText id="input1" required="true" />
-					<p:message for="input1" />
-					<h:outputText />
-					<h:outputLabel value="Filtro" />
-					<h:selectOneMenu value="selecionar por" required="true">
-                       <f:selectItem itemLabel="nome"/>
-                        <f:selectItem itemLabel="profissão"/>
-                         <f:selectItem itemLabel="especialidade"/>
-					</h:selectOneMenu>
-
-				</h:panelGrid>
 
 
-			</p:panel>
-		</h:form>
-	</div>
+	<ui:composition template="template?index.xhtml">
 
-	<div id="footer"></div>
+	<ui:define name="image">
+ <h:graphicImage library="img" name="images.jpeg"  height="759"  />
 
-</h:body>
+
+
+	</ui:define>
+</ui:composition>
 </html>

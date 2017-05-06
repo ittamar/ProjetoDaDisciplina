@@ -5,27 +5,21 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Insert title here</title>
-		<link href="${facesContext.externalContext.requestContextPath}/css/login.css" rel="stylesheet" type="text/css" media="screen" />
-	
+<ui:composition template="template?index.xhtml">
 
+	<ui:define name="login">
 
-</h:head>
-
-<h:body class="campo" >
-
-	<h:form style="margin:15% 38%">
+<h:form style="margin:15% 38%">
 		<p:panelGrid columns="2">
 
 			<f:facet name="header">Login</f:facet>
 			<h:outputLabel styleClass="top" for="nome" value="Usuário" />
-			<h:inputText id="nome" />
+			<h:inputText id="nome" value="#{bean.entidade.login}" />
 			<h:outputLabel for="senha" value="Senha" />
-			<h:inputSecret value="" id="senha" />
+			<h:inputSecret  id="senha" value="#{bean.entidade.senha}" />
 
-			<h:commandButton value="Entrar" />
+			<h:commandButton value="Entrar" action="#{bean.login}" />
+			
 
 
 		</p:panelGrid>
@@ -34,7 +28,6 @@
 	</h:form>
 
 
-
-
-</h:body>
+	</ui:define>
+</ui:composition>
 </html>

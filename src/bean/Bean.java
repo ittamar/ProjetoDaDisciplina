@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 
 import com.br.projetoWeb.entidade.Empresa;
 import com.br.projetoWeb.entidade.Entidade;
@@ -12,19 +14,36 @@ import com.br.projetoWeb.entidade.Paciente;
 import com.br.projetoWeb.entidade.Profissional;
 
 @ManagedBean (name="bean")
-@RequestScoped
+@SessionScoped
 public class Bean implements Serializable {
 	private Entidade entidade;
 	private Empresa empresa;
 	private Paciente paciente;
 	private Profissional profissional;
-	List<Profissional> empregado;
-	public Bean() {
+	
+		public Bean() {
 		super();
+		
+		this.entidade = new Entidade();
+		this.profissional = new Profissional();
+		
+	
 	}
+		
+		
 	
-	
-	
+	public String login(){
+		System.out.println(entidade.getLogin()+"-------"+entidade.getSenha());
+		if(entidade.getLogin().equals("admin") && entidade.getSenha().equals("admin")){
+			return "admin?faces-redirect=true";
+		}else{
+			return null;
+		}
+		
+		
+	}
+
+
 	public Empresa getEmpresa() {
 		return empresa;
 	}
@@ -63,12 +82,7 @@ public class Bean implements Serializable {
 	public void setProfissional(Profissional profissional) {
 		this.profissional = profissional;
 	}
-	public List<Profissional> getEmpregado() {
-		return empregado;
-	}
-	public void setEmpregado(List<Profissional> empregado) {
-		this.empregado = empregado;
-	}
+	
 	
 	
 
