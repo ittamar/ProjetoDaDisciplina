@@ -5,72 +5,14 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Administrador</title>
-</h:head>
-<h:body>
 
+<ui:composition template="template.xhtml">
 
-
-	<p:layout fullPage="true">
-		<p:layoutUnit position="north" size="100" resizable="true"
-			closable="true" collapsible="true">
-			<center> <font size="6">Administrador</font></center>
-		</p:layoutUnit>
+	<ui:define name="formCadastro">
 
 
 
 
-
-		<p:layoutUnit position="west" resizable="true" size="200" minSize="40"
-			maxSize="200">
-			<h:form style="">
-				<p:menu>
-					<p:submenu label="Cadastro" position="center">
-						<p:menuitem value="Adicionar funcionário" />
-						<p:menuitem value="Remover funcionário" />
-						<p:menuitem value="Alterar dados" />
-					</p:submenu>
-
-				</p:menu>
-			</h:form>
-
-		</p:layoutUnit>
-
-		<p:layoutUnit position="center">
-			<p:panel header="Cadastro de Funcionário">
-
-				<h:panelGrid columns="2" columnClasses="label,value">
-
-					<h:outputLabel value="Nome" />
-					<p:inputText label="nome" />
-					<h:outputLabel value="Endereço" />
-					<p:inputText label="endereço" />
-					<h:outputLabel value="Telefone" />
-					<p:inputMask mask="(99)9999-9999" />
-					<h:outputLabel value="Cpf" />
-					<p:inputText label="cpf" />
-					<h:outputLabel value="Código do Conselho" />
-					<p:inputText label="cc" />
-					<h:outputLabel value="Descrição Profissional" />
-					<p:inputText label="dp" />
-					<h:outputLabel value="Profissão" />
-					<p:inputText label="profissão" />
-					<h:outputLabel value="Especialidade" />
-					<p:inputText label="Especialidade" />
-					<h:outputLabel value="Data do Cadastro" />
-					<p:inputMask mask="99/99/9999" />
-					<p:commandButton value="Cadastrar" />
-				</h:panelGrid>
-			</p:panel>
-
-
-		</p:layoutUnit>
-	</p:layout>
-
-
-
-
-</h:body>
+	</ui:define>
+</ui:composition>
 </html>
