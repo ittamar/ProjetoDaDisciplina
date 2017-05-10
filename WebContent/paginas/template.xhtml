@@ -6,12 +6,12 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
-	
-	<h:head>
-	
-	
-	</h:head>
-	<h:body>
+
+<h:head>
+
+
+</h:head>
+<h:body>
 
 	<div id="body">
 		<p:layout fullPage="true" id="lay">
@@ -29,11 +29,12 @@
 				<h:form style="">
 					<p:menu>
 						<p:submenu label="Cadastro" position="center">
-						<p:menuitem value="Home" outcome="admin.xhtml" />
-							<p:menuitem value="Adicionar funcionário" outcome="cadastrarfuncionario.xhtml" />
+							<p:menuitem value="Home" outcome="admin.xhtml" />
+							<p:menuitem value="Adicionar funcionário"
+								outcome="cadastrarfuncionario.xhtml" />
 							<p:menuitem value="Cadastrar Empresa"
 								outcome="cadastrar_empresa.xhtml" />
-								<p:menuitem value="Remover funcionário" action="#{bean.remo}" />
+							<p:menuitem value="Remover funcionário" action="#{bean.remo}" />
 							<p:menuitem value="Alterar dados" />
 						</p:submenu>
 
@@ -49,12 +50,16 @@
 
 
 			<p:layoutUnit position="center">
+
+
 				<ui:insert name="formCadastro">
-					
+
 				</ui:insert>
+
 			</p:layoutUnit>
+
 		</p:layout>
 
 	</div>
-	</h:body>
+</h:body>
 </html>

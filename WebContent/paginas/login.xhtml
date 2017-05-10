@@ -5,28 +5,42 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
+	
+	<h:head/>
+	
 <ui:composition template="template?index.xhtml">
 
 	<ui:define name="login">
 
-<h:form style="margin:15% 38%">
-		<p:panelGrid columns="2">
-
+<h:form style="margin:15% 38%" id="grid">
+        <p:messages  id="men"/>
+		<p:panelGrid columns="2" >
+			
+		
 			<f:facet name="header">Login</f:facet>
+			
 			<h:outputLabel styleClass="top" for="nome" value="Usuário" />
-			<h:inputText id="nome" value="#{bean.entidade.login}" />
+			
+			
+			<h:inputText id="nome" value="#{bean.entidade.login}" requiredMessage="Campo Obrigatório">
+			<f:ajax  event="blur" execute="nome"  />
+			</h:inputText>
+			
 			<h:outputLabel for="senha" value="Senha" />
-			<h:inputSecret  id="senha" value="#{bean.entidade.senha}" />
-
-			<h:commandButton value="Entrar" action="#{bean.login}" />
+			
+			<h:inputSecret  id="senha" value="#{bean.entidade.senha}" requiredMessage="Campo Obrigatório"/>
+			
+            
+			<h:commandButton value="Entrar" action="#{bean.login}" update="grid" id ="button">
+			<f:ajax execute="@form" render="men"  />
+			</h:commandButton>
 			
 
 
 		</p:panelGrid>
 
-
+ 
 	</h:form>
-
 
 	</ui:define>
 </ui:composition>
