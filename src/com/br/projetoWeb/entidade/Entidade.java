@@ -13,11 +13,11 @@ public class Entidade {
 */	 
 	  private String nome;
 	  private String endereco;
-	  private long telefone;
+	  private String telefone;
 	  private String descProfissional;
 	  private String profissao;
 	  private String especialidade;
-	  private String comentario;
+     private String comentario;
 	  private String dataCadastro;
 	  private String login;
 	  private String senha;
@@ -25,6 +25,7 @@ public class Entidade {
 	  //
 	  // Constructors
 	  //
+	
 	  public Entidade () { }
 
 	public String getNome() {
@@ -43,11 +44,11 @@ public class Entidade {
 		this.endereco = endereco;
 	}
 
-	public long getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(long telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
