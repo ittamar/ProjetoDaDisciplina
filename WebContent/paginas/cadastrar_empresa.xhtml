@@ -8,26 +8,29 @@
 <ui:composition template="template.xhtml">
 
 	<ui:define name="formCadastro">
+	
 		<h:form>
 			<h:panelGroup>
 
-				<p:panel header="Cadastrar Funcionário">
+				<p:panel header="Cadastrar Empresa">
 
 					<h:panelGrid columns="2" columnClasses="label,value">
 
 						<h:outputLabel value="Nome Fantasia" />
-						<p:inputText value="#{bean.empresa.nomeFantasia}" />
+						<p:inputText value="#{bean.empresa.nomeFantasia}"  id="nomeFantasia">
+						<f:ajax event="focus"/>
+						</p:inputText>
 						<h:outputLabel value="Endereço" />
 						<p:inputText label="endereço" value="#{bean.empresa.endereco}" />
 						<h:outputLabel value="Telefone" />
 						<p:inputMask mask="(99)9999-9999" value="#{bean.empresa.telefone}" />
 						<h:outputLabel value="Cnpj" />
-						<p:inputText label="cnpj" value="#{bean.empresa.cnpj}" />
+						<p:inputMask mask="999.999.999-99" label="cnpj" value="#{bean.empresa.cnpj}" />
 						<h:outputLabel value="Data do Cadastro" />
 						<p:inputMask mask="99/99/9999"
 							value="#{bean.empresa.dataCadastro}" />
 						<p:commandButton value="Cadastrar"
-							actionListener="#{bean.addEmpresa}">
+							action="#{bean.addEmpresa}">
 							<f:ajax execute="@form" render="@form :tabEmpresa" />
 						</p:commandButton>
 					</h:panelGrid>
@@ -37,6 +40,12 @@
 		</h:form>
 		
 		<p:dataTable value="#{bean.listEmpresa}" var="listEmpresa"  border="1" id="tabEmpresa" cellpandding="2" cellspacing="0" >
+		<f:facet name="header">
+            <p:outputPanel>
+                <h:outputText value="Search all fields:" />
+                <p:inputText id="globalFilter"  style="width:150px" placeholder="Enter keyword"/>
+            </p:outputPanel>
+        </f:facet>
 		
 		<p:column headerText="Nome Fantasia">
 		<h:outputText value="#{listEmpresa.nomeFantasia}" />		

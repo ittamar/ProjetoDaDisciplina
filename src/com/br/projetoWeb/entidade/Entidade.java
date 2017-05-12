@@ -1,9 +1,7 @@
 package com.br.projetoWeb.entidade;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
 /*@Entity
 @Table (name="entidade")*/
@@ -17,7 +15,7 @@ public class Entidade {
 	  private String descProfissional;
 	  private String profissao;
 	  private String especialidade;
-     private String comentario;
+      private List<Comentario> comentarios = new ArrayList<Comentario>();
 	  private String dataCadastro;
 	  private String login;
 	  private String senha;
@@ -76,12 +74,14 @@ public class Entidade {
 		this.especialidade = especialidade;
 	}
 
-	public String getComentario() {
-		return comentario;
+	
+
+	public List<Comentario> getComentarios() {
+		return comentarios;
 	}
 
-	public void setComentario(String comentario) {
-		this.comentario = comentario;
+	public void setComentarios(List<Comentario> comentarios) {
+		this.comentarios = comentarios;
 	}
 
 	public String getDataCadastro() {

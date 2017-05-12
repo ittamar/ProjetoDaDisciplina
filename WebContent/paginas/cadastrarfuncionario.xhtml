@@ -25,15 +25,11 @@
 						<p:inputMask mask="(99)999999999" label="telefone"
 							value="#{bean.profissional.telefone}" />
 						<h:outputLabel value="Cpf" />
-						<p:inputText label="cpf" value="#{bean.profissional.cpf}"
+						<p:inputMask mask="999.999.999-99" label="cpf" value="#{bean.profissional.cpf}"
 							requiredMessage="Preenchimento Obrigatório" />
 						<h:outputLabel value="Código do Conselho" />
 						<p:inputText label="cc"
 							value="#{bean.profissional.codigoDoConselho}"
-							requiredMessage="Preenchimento Obrigatório" />
-						<h:outputLabel value="Descrição Profissional" />
-						<p:inputText label="dp"
-							value="#{bean.profissional.descProfissional}"
 							requiredMessage="Preenchimento Obrigatório" />
 						<h:outputLabel value="Profissão" />
 						<p:inputText label="profissão"
@@ -46,6 +42,10 @@
 						<h:outputLabel value="Data do Cadastro" />
 						<p:inputMask mask="99/99/9999"
 							value="#{bean.profissional.dataCadastro}"
+							requiredMessage="Preenchimento Obrigatório" />
+							<h:outputLabel value="Descrição Profissional" />
+						<p:inputTextarea label="dp"
+							value="#{bean.profissional.descProfissional}"
 							requiredMessage="Preenchimento Obrigatório" />
 						<p:commandButton value="Cadastrar"
 							action="#{bean.addProfissional}" id="form">
@@ -61,48 +61,49 @@
 
 		</h:form>
 
-		<p:dataTable value="#{bean.listProfissional}" var="list" border="1" id="tab" cellpandding="2" cellspacing="0">
+		<p:dataTable value="#{bean.listProfissional}" var="list" border="1"
+			id="tab" cellpandding="2" cellspacing="0">
 
 			<p:column headerText="Nome">
-			<h:outputText value="#{list.nome}" />
+				<h:outputText value="#{list.nome}" />
 			</p:column>
-			
+
 			<p:column headerText="Endereço">
-			<h:outputText value="#{list.endereco}" />
+				<h:outputText value="#{list.endereco}" />
 			</p:column>
-			
+
 			<p:column headerText="Telefone">
-			<h:outputText value="#{list.telefone}" />
+				<h:outputText value="#{list.telefone}" />
 			</p:column>
-			
+
 			<p:column headerText="Cpf">
-			<h:outputText value="#{list.cpf}" />
+				<h:outputText value="#{list.cpf}" />
 			</p:column>
-			
+
 			<p:column headerText="Cód. do Conselho">
-			<h:outputText value="#{list.codigoDoConselho}" />
+				<h:outputText value="#{list.codigoDoConselho}" />
 			</p:column>
-			
+
 			<p:column headerText="Descrição Profissional">
-			<h:outputText value="#{list.descProfissional}" />
+				<h:outputText value="#{list.descProfissional}" />
 			</p:column>
-			
+
 			<p:column headerText="Profissão">
-			<h:outputText value="#{list.profissao}" />
+				<h:outputText value="#{list.profissao}" />
 			</p:column>
-					
+
 			<p:column headerText="Especialidade">
-			<h:outputText value="#{list.especialidade}" />
+				<h:outputText value="#{list.especialidade}" />
 			</p:column>
-			
+
 			<p:column headerText="Data do Cadastro">
-			<h:outputText value="#{list.dataCadastro}" />
+				<h:outputText value="#{list.dataCadastro}" />
 			</p:column>
-			
-			
-			
-			
-			
+
+
+
+
+
 
 		</p:dataTable>
 

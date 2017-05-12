@@ -6,7 +6,7 @@ import java.util.List;
 public class Empresa extends Entidade{
 
 	private String nomeFantasia;
-	private long cnpj;
+	private String cnpj;
 	Profissional profi;
 	/*List<Empresa> empresa = new ArrayList<Empresa>();
 	private Empresa emp;
@@ -57,11 +57,11 @@ public class Empresa extends Entidade{
 		this.profi = profi;
 	}
 
-	public long getCnpj() {
+	public String getCnpj() {
 		return cnpj;
 	}
 
-	public void setCnpj(long cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 

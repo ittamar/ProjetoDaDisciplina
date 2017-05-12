@@ -7,7 +7,8 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title><ui:insert name="title">Policlinica Web</ui:insert></title>
-	<link href="${facesContext.externalContext.requestContextPath}/css/login.css"
+	<link
+		href="${facesContext.externalContext.requestContextPath}/css/login.css"
 		rel="stylesheet" type="text/css" media="screen" />
 </h:head>
 
@@ -23,39 +24,37 @@
 			</p:layoutUnit>
 
 
-			<p:layoutUnit position="west" 
-				minSize="40" id="layoutMenu">
+			<p:layoutUnit position="west" minSize="40" id="layoutMenu">
 				<h:form style="">
 					<p:menu>
-						<p:submenu label="Menu" position="center" >
+						<p:submenu label="Menu" position="center">
 							<p:menuitem value="Home" outcome="index.xhtml" />
 							<p:menuitem value="Deixar Comentário" />
-							<p:menuitem value="Pesquisar" />
-							<p:menuitem value="Administrador" outcome="login.xhtml"/>
+							<p:menuitem value="Pesquisar" outcome="dadosEntidade.xhtml" />
+							<p:menuitem value="Administrador" outcome="login.xhtml" />
 
 						</p:submenu>
-
-
 					</p:menu>
-
-
-
-
 				</h:form>
 
 			</p:layoutUnit>
 
 
-			<p:layoutUnit position="center"  >
-			<div id="img">
-				<ui:insert name="image" >
+			<p:layoutUnit position="center">
+				<div id="img">
+					<ui:insert name="image">
 
-				</ui:insert>
-				
-				<ui:insert name="login" >
+					</ui:insert>
 
-				</ui:insert>
-				</div>
+					<ui:insert name="login">
+
+					</ui:insert>
+					</div>
+					<di id="tabelaPesquisa">
+					<ui:insert name="pesquisarEntidade">
+					
+					</ui:insert>
+					</di>
 			</p:layoutUnit>
 		</p:layout>
 

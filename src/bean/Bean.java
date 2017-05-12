@@ -38,7 +38,7 @@ public class Bean implements Serializable {
 
 		entidade = new Entidade();
 		profissional = new Profissional();
-		listEmpresa = new ArrayList<Empresa>();
+		//listEmpresa = new ArrayList<Empresa>();
 		empresa = new Empresa();
 		
 
@@ -186,7 +186,7 @@ public void addProfissional(){
 public void addEmpresa(){
 	listEmpresa.add(empresa);
 	this.entidade = new Entidade();
-	this.empresa = new Empresa();
+	//this.empresa = new Empresa();
 	
 	//this.entidade = new Entidade();
 	
