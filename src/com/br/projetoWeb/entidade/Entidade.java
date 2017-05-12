@@ -19,6 +19,7 @@ public class Entidade {
 	  private String dataCadastro;
 	  private String login;
 	  private String senha;
+	  private double x;
 	  
 	  //
 	  // Constructors
