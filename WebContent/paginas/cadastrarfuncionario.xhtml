@@ -48,8 +48,9 @@
 							value="#{bean.profissional.descProfissional}"
 							requiredMessage="Preenchimento Obrigatório" />
 						<p:commandButton value="Cadastrar"
-							action="#{bean.addProfissional}" id="form">
-							<f:ajax execute="@form" render="@form :tab" />
+							actionListener="#{bean.addProfissional}" id="form" update=":tab">
+							<p:ajax execute="@form" />
+							
 						</p:commandButton>
 
 					</h:panelGrid>
@@ -60,15 +61,24 @@
 			</h:panelGroup>
 
 		</h:form>
-
+		
+    
 		<p:dataTable value="#{bean.listProfissional}" var="list" border="1"
-			id="tab" cellpandding="2" cellspacing="0">
+			
+			id="tab" cellpandding="2" cellspacing="0" widgetVar="listTable">
+			
+			 <f:facet name="header">
+            <p:outputPanel>
+                <h:outputText value="Search all fields:" />
+                <p:inputText id="globalFilter" onkeyup="PF('listTable').filter()" style="width:150px" placeholder="Enter keyword"/>
+            </p:outputPanel>
+        </f:facet>
 
-			<p:column headerText="Nome">
+			<p:column headerText="Nome" filterBy="#{list.nome}" filterMatchMode="startsWith">
 				<h:outputText value="#{list.nome}" />
 			</p:column>
 
-			<p:column headerText="Endereço">
+			<p:column headerText="Endereço"  filterBy="#{list.endereco}" filterMatchMode="startsWith">
 				<h:outputText value="#{list.endereco}" />
 			</p:column>
 
@@ -76,11 +86,11 @@
 				<h:outputText value="#{list.telefone}" />
 			</p:column>
 
-			<p:column headerText="Cpf">
+			<p:column headerText="Cpf"  filterBy="#{list.cpf}" filterMatchMode="contains">
 				<h:outputText value="#{list.cpf}" />
 			</p:column>
 
-			<p:column headerText="Cód. do Conselho">
+			<p:column headerText="Cód. do Conselho"  filterBy="#{list.codigoDoConselho}" filterMatchMode="contains">
 				<h:outputText value="#{list.codigoDoConselho}" />
 			</p:column>
 
@@ -88,22 +98,19 @@
 				<h:outputText value="#{list.descProfissional}" />
 			</p:column>
 
-			<p:column headerText="Profissão">
+			<p:column headerText="Profissão"  filterBy="#{list.profissao}" filterMatchMode="startsWith">
 				<h:outputText value="#{list.profissao}" />
 			</p:column>
 
-			<p:column headerText="Especialidade">
+			<p:column headerText="Especialidade"  filterBy="#{list.especialidade}" filterMatchMode="startsWith">
 				<h:outputText value="#{list.especialidade}" />
 			</p:column>
 
 			<p:column headerText="Data do Cadastro">
 				<h:outputText value="#{list.dataCadastro}" />
 			</p:column>
-
-
-
-
-
+			
+			
 
 		</p:dataTable>
 

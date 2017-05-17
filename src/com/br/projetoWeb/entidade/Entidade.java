@@ -6,26 +6,28 @@ import java.util.List;
 /*@Entity
 @Table (name="entidade")*/
 public class Entidade {
-	  /* @Id
-	   @GeneratedValue//paraou aqui pesquisar sobre chave candidata
-*/	 
-	  private String nome;
-	  private String endereco;
-	  private String telefone;
-	  private String descProfissional;
-	  private String profissao;
-	  private String especialidade;
-      private List<Comentario> comentarios = new ArrayList<Comentario>();
-	  private String dataCadastro;
-	  private String login;
-	  private String senha;
-	 
-	  
-	  //
-	  // Constructors
-	  //
-	
-	  public Entidade () { }
+	/*
+	 * @Id
+	 * 
+	 * @GeneratedValue//paraou aqui pesquisar sobre chave candidata
+	 */
+	private String nome;
+	private String endereco;
+	private String telefone;
+	private String descProfissional;
+	private String profissao;
+	private String especialidade;
+	private List<Comentario> comentarios = new ArrayList<Comentario>();
+	private String dataCadastro;
+	private String login;
+	private String senha;
+
+	//
+	// Constructors
+	//
+
+	public Entidade() {
+	}
 
 	public String getNome() {
 		return nome;
@@ -75,8 +77,6 @@ public class Entidade {
 		this.especialidade = especialidade;
 	}
 
-	
-
 	public List<Comentario> getComentarios() {
 		return comentarios;
 	}
@@ -108,17 +108,13 @@ public class Entidade {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	};
-	  
-	  //
-	  // Methods
-	  //
 
+	//
+	// Methods
+	//
 
-	  //
-	  // Accessor methods
-	  //
-	  
-	  
+	//
+	// Accessor methods
+	//
 
-	
 }

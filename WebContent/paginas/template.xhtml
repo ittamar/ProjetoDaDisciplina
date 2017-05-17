@@ -36,6 +36,7 @@
 								outcome="cadastrar_empresa.xhtml" />
 							<p:menuitem value="Remover funcionário" action="#{bean.remo}" />
 							<p:menuitem value="Alterar dados" />
+							<p:menuitem value="Exibir Comentários" action="tabelaComentario?faces-redirect=true"/>
 							<p:menuitem value="Sair" outcome="index.xhtml" />
 							
 						</p:submenu>
@@ -56,6 +57,8 @@
 
 				<ui:insert name="formCadastro">
 
+				</ui:insert>
+				<ui:insert name="tabelaComentario">
 				</ui:insert>
 
 			</p:layoutUnit>

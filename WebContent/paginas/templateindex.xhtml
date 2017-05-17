@@ -28,10 +28,9 @@
 				<h:form style="">
 					<p:menu>
 						<p:submenu label="Menu" position="center">
-							<p:menuitem value="Home" outcome="index.xhtml" />
-							<p:menuitem value="Deixar Comentário" />
-							<p:menuitem value="Pesquisar" outcome="dadosEntidade.xhtml" />
-							<p:menuitem value="Administrador" outcome="login.xhtml" />
+							<p:menuitem value="Home" action="index?faces-redirect=true" />
+							<p:menuitem value="Pesquisar Funcionário" action="dadosEntidade?faces-redirect=true" />
+							<p:menuitem value="Administrador" action="login?faces-redirect=true" />
 
 						</p:submenu>
 					</p:menu>
@@ -41,7 +40,10 @@
 
 
 			<p:layoutUnit position="center">
+			<ui:insert name="formComentario">
+				</ui:insert>
 				<div id="img">
+				
 					<ui:insert name="image">
 
 					</ui:insert>

@@ -5,42 +5,48 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-	
-	<h:head/>
-	
+
+<h:head />
+
 <ui:composition template="templateindex.xhtml">
 
 	<ui:define name="login">
-
-<h:form style="margin:15% 38%" id="grid">
-        <p:messages  id="men"/>
-		<p:panelGrid columns="2" >
-			
+		<p:growl id="messages" autoUpdate="true" />
 		
-			<f:facet name="header">Login</f:facet>
-			
-			<h:outputLabel styleClass="top" for="nome" value="Usuário" />
-			
-			
-			<h:inputText id="nome" value="#{bean.entidade.login}" requiredMessage="Campo Obrigatório">
-			<f:ajax  event="blur" execute="nome"  />
-			</h:inputText>
-			
-			<h:outputLabel for="senha" value="Senha" />
-			
-			<h:inputSecret  id="senha" value="#{bean.entidade.senha}" requiredMessage="Campo Obrigatório"/>
-			
-            
-			<h:commandButton value="Entrar" action="#{bean.login}" update="grid" id ="button">
-			<f:ajax execute="@form" render="men"  />
-			</h:commandButton>
-			
+		<h:form style="margin:15% 38%" id="grid">
+
+			<p:panelGrid columns="2">
 
 
-		</p:panelGrid>
+				<f:facet name="header">Login</f:facet>
 
- 
-	</h:form>
+				<p:outputLabel styleClass="top" for="nome" value="Usuário" />
+
+
+				<p:inputText id="nome" value="#{bean.entidade.login}"
+					 required="true" requiredMessage="Campo Obrigatório">
+					<f:ajax event="blur" render="logo" />
+				</p:inputText>
+
+				<p:outputLabel for="senha" value="Senha" />
+
+				<h:inputSecret id="senha" value="#{bean.entidade.senha}"
+					requiredMessage="Campo Obrigatório" />
+
+
+
+				<p:commandButton value="Entrar" action="#{bean.login}" update="grid"
+					id="button">
+					<f:ajax execute="@form" />
+				</p:commandButton>
+
+
+
+			</p:panelGrid>
+
+<p:growl id="logo" for="nome" />
+
+		</h:form>
 
 	</ui:define>
 </ui:composition>

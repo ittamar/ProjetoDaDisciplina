@@ -30,8 +30,8 @@
 						<p:inputMask mask="99/99/9999"
 							value="#{bean.empresa.dataCadastro}" />
 						<p:commandButton value="Cadastrar"
-							action="#{bean.addEmpresa}">
-							<f:ajax execute="@form" render="@form :tabEmpresa" />
+							actionListener="#{bean.addEmpresa}" update=":tabEmpresa">
+							<f:ajax execute="@form" render="@form"/>
 						</p:commandButton>
 					</h:panelGrid>
 				</p:panel>
@@ -39,19 +39,14 @@
 			</h:panelGroup>
 		</h:form>
 		
-		<p:dataTable value="#{bean.listEmpresa}" var="listEmpresa"  border="1" id="tabEmpresa" cellpandding="2" cellspacing="0" >
-		<f:facet name="header">
-            <p:outputPanel>
-                <h:outputText value="Search all fields:" />
-                <p:inputText id="globalFilter"  style="width:150px" placeholder="Enter keyword"/>
-            </p:outputPanel>
-        </f:facet>
 		
-		<p:column headerText="Nome Fantasia">
+		<p:dataTable value="#{bean.listEmpresa}" var="listEmpresa"  border="1" id="tabEmpresa" cellpandding="2" cellspacing="0" >
+		
+		<p:column headerText="Nome Fantasia" filterBy="#{listEmpresa.nomeFantasia}" filterMatchMode="startsWith">
 		<h:outputText value="#{listEmpresa.nomeFantasia}" />		
 		</p:column>
 		
-		<p:column headerText="Endereço">
+		<p:column headerText="Endereço" filterBy="#{listEmpresa.endereco}" filterMatchMode="startsWith">
 		<h:outputText value="#{listEmpresa.endereco}" />		
 		</p:column>
 		
@@ -59,7 +54,7 @@
 		<h:outputText value="#{listEmpresa.telefone}" />		
 		</p:column>
 		
-		<p:column headerText="Cnpj">
+		<p:column headerText="Cnpj" filterBy="#{listEmpresa.cnpj}" filterMatchMode="contains">
 		<h:outputText value="#{listEmpresa.cnpj}" />		
 		</p:column>
 		
@@ -72,6 +67,7 @@
 		
 		
 		</p:dataTable>
+		
 
 	</ui:define>
 
