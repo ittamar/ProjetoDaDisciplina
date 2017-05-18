@@ -30,27 +30,37 @@
 						<p:inputMask mask="99/99/9999"
 							value="#{bean.empresa.dataCadastro}" />
 						<p:commandButton value="Cadastrar"
-							actionListener="#{bean.addEmpresa}" update=":tabEmpresa">
+							actionListener="#{bean.addEmpresa}" update=":formTabEmpresa">
 							<f:ajax execute="@form" render="@form"/>
 						</p:commandButton>
 					</h:panelGrid>
 				</p:panel>
 
 			</h:panelGroup>
+			
 		</h:form>
 		
+		<h:form id="formTabEmpresa">
+		<p:dataTable value="#{bean.listEmpresa}" var="listEmpresa"  border="1" id="tabEmpresa" cellpandding="2" cellspacing="0" widgetVar="listTable" >
 		
-		<p:dataTable value="#{bean.listEmpresa}" var="listEmpresa"  border="1" id="tabEmpresa" cellpandding="2" cellspacing="0" >
+		<f:facet name="header">
+				<p:outputPanel>
+					<h:outputText value="Search all fields:" />
+					<p:inputText id="globalFilter" onkeyup="PF('listTable').filter()"
+						style="width:150px" placeholder="Enter keyword" />
+				</p:outputPanel>
+			</f:facet>
 		
-		<p:column headerText="Nome Fantasia" filterBy="#{listEmpresa.nomeFantasia}" filterMatchMode="startsWith">
+		
+		<p:column headerText="Nome Fantasia" filterBy="#{listEmpresa.nomeFantasia}" filterMatchMode="contains">
 		<h:outputText value="#{listEmpresa.nomeFantasia}" />		
 		</p:column>
 		
-		<p:column headerText="Endereço" filterBy="#{listEmpresa.endereco}" filterMatchMode="startsWith">
+		<p:column headerText="Endereço" filterBy="#{listEmpresa.endereco}" filterMatchMode="contains">
 		<h:outputText value="#{listEmpresa.endereco}" />		
 		</p:column>
 		
-		<p:column headerText="Telefone">
+		<p:column headerText="Telefone"  filterBy="#{listEmpresa.telefone}" filterMatchMode="contains">
 		<h:outputText value="#{listEmpresa.telefone}" />		
 		</p:column>
 		
@@ -58,16 +68,12 @@
 		<h:outputText value="#{listEmpresa.cnpj}" />		
 		</p:column>
 		
-		<p:column headerText="Data de Cadastro">
+		<p:column headerText="Data de Cadastro" filterBy="#{listEmpresa.dataCadastro}" filterMatchMode="contains">
 		<h:outputText value="#{listEmpresa.dataCadastro}" />		
 		</p:column>
 		
-		
-		
-		
-		
 		</p:dataTable>
-		
+		</h:form>
 
 	</ui:define>
 

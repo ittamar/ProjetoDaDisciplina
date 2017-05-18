@@ -9,9 +9,18 @@
 	<ui:define name="pesquisarEntidade">
 
 
-
+ <h:form>
 		<p:dataTable value="#{bean.listProfissional}" var="list" border="1"
-			id="tab" cellpandding="2" cellspacing="0">
+			id="tab" cellpandding="2" cellspacing="0" widgetVar="listTabDadosEntidade">
+			
+			
+			<f:facet name="header">
+				<p:outputPanel>
+					<h:outputText value="Search all fields:" />
+					<p:inputText id="globalFilter" onkeyup="PF('listTabDadosEntidade').filter()"
+						style="width:150px" placeholder="Enter keyword" />
+				</p:outputPanel>
+			</f:facet>
 
 			
 			<p:column headerText="Nome" filterBy="#{list.nome}"
@@ -20,13 +29,8 @@
 					value="#{list.nome}" />
 			</p:column>
 			
-			<p:column headerText="Descrição Profissional">
-				<h:outputText value="#{list.endereco}" />
-			</p:column>
-			
-
-
-			<p:column headerText="Descrição Profissional">
+					<p:column headerText="Descrição Profissional" filterBy="#{list.descProfissional}"
+				filterMatchMode="contains">
 				<h:outputText value="#{list.descProfissional}" />
 			</p:column>
 			
@@ -45,7 +49,7 @@
 
 		</p:dataTable>
 
-
+</h:form>
 
 
 

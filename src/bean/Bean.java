@@ -31,8 +31,8 @@ public class Bean implements Serializable {
 	Profissional pro = new Profissional();
 	private List<Empresa> listEmpresa = new ArrayList<Empresa>();
 	private List<Comentario> listComentario = new ArrayList();
-	private List<Profissional> listProfissional = new ArrayList();
-	// private List<Comentario> listFiltro = new ArrayList();
+	private List<Profissional> listProfissional;
+	// private List<Profissional> listFiltro;
 	// private HtmlDataTable tabelaU;
 
 	public Bean() {
@@ -45,10 +45,10 @@ public class Bean implements Serializable {
 	}
 
 	/*
-	 * public List<Comentario> getListFiltro() { return listFiltro; }
+	 * public List<Profissional> getListFiltro() { return listFiltro; }
 	 * 
-	 * public void setListFiltro(List<Comentario> listFiltro) { this.listFiltro
-	 * = listFiltro; }
+	 * public void setListFiltro(List<Profissional> listFiltro) {
+	 * this.listFiltro = listFiltro; }
 	 */
 	public List<Comentario> getListComentario() {
 		return listComentario;
@@ -168,7 +168,7 @@ public class Bean implements Serializable {
 
 	public void addComentario() {
 		listComentario.add(comentario);
-		this.entidade = new Entidade();
+		// this.entidade = new Entidade();
 		this.comentario = new Comentario();
 
 	}

@@ -25,7 +25,8 @@
 						<p:inputMask mask="(99)999999999" label="telefone"
 							value="#{bean.profissional.telefone}" />
 						<h:outputLabel value="Cpf" />
-						<p:inputMask mask="999.999.999-99" label="cpf" value="#{bean.profissional.cpf}"
+						<p:inputMask mask="999.999.999-99" label="cpf"
+							value="#{bean.profissional.cpf}"
 							requiredMessage="Preenchimento Obrigatório" />
 						<h:outputLabel value="Código do Conselho" />
 						<p:inputText label="cc"
@@ -43,14 +44,14 @@
 						<p:inputMask mask="99/99/9999"
 							value="#{bean.profissional.dataCadastro}"
 							requiredMessage="Preenchimento Obrigatório" />
-							<h:outputLabel value="Descrição Profissional" />
+						<h:outputLabel value="Descrição Profissional" />
 						<p:inputTextarea label="dp"
 							value="#{bean.profissional.descProfissional}"
 							requiredMessage="Preenchimento Obrigatório" />
 						<p:commandButton value="Cadastrar"
-							actionListener="#{bean.addProfissional}" id="form" update=":tab">
-							<p:ajax execute="@form" />
-							
+							actionListener="#{bean.addProfissional}" id="form" update=":formTab">
+							<p:ajax execute="@form" render=":tab" />
+
 						</p:commandButton>
 
 					</h:panelGrid>
@@ -61,62 +62,65 @@
 			</h:panelGroup>
 
 		</h:form>
+
+		<h:form id="formTab">
+			<p:dataTable value="#{bean.listProfissional}" var="list" border="1"
+				id="tab" cellpandding="2" cellspacing="0" widgetVar="listTableFuncionario">
+				
+				<f:facet name="header">
+				<p:outputPanel>
+					<h:outputText value="Search all fields:" />
+					<p:inputText id="globalFilter" onkeyup="PF('listTableFuncionario').filter()"
+						style="width:150px" placeholder="Enter keyword" />
+				</p:outputPanel>
+			</f:facet>
 		
-    
-		<p:dataTable value="#{bean.listProfissional}" var="list" border="1"
-			
-			id="tab" cellpandding="2" cellspacing="0" widgetVar="listTable">
-			
-			 <f:facet name="header">
-            <p:outputPanel>
-                <h:outputText value="Search all fields:" />
-                <p:inputText id="globalFilter" onkeyup="PF('listTable').filter()" style="width:150px" placeholder="Enter keyword"/>
-            </p:outputPanel>
-        </f:facet>
-
-			<p:column headerText="Nome" filterBy="#{list.nome}" filterMatchMode="startsWith">
-				<h:outputText value="#{list.nome}" />
-			</p:column>
-
-			<p:column headerText="Endereço"  filterBy="#{list.endereco}" filterMatchMode="startsWith">
-				<h:outputText value="#{list.endereco}" />
-			</p:column>
-
-			<p:column headerText="Telefone">
-				<h:outputText value="#{list.telefone}" />
-			</p:column>
-
-			<p:column headerText="Cpf"  filterBy="#{list.cpf}" filterMatchMode="contains">
-				<h:outputText value="#{list.cpf}" />
-			</p:column>
-
-			<p:column headerText="Cód. do Conselho"  filterBy="#{list.codigoDoConselho}" filterMatchMode="contains">
-				<h:outputText value="#{list.codigoDoConselho}" />
-			</p:column>
-
-			<p:column headerText="Descrição Profissional">
-				<h:outputText value="#{list.descProfissional}" />
-			</p:column>
-
-			<p:column headerText="Profissão"  filterBy="#{list.profissao}" filterMatchMode="startsWith">
-				<h:outputText value="#{list.profissao}" />
-			</p:column>
-
-			<p:column headerText="Especialidade"  filterBy="#{list.especialidade}" filterMatchMode="startsWith">
-				<h:outputText value="#{list.especialidade}" />
-			</p:column>
-
-			<p:column headerText="Data do Cadastro">
-				<h:outputText value="#{list.dataCadastro}" />
-			</p:column>
-			
-			
-
-		</p:dataTable>
 
 
 
+				<p:column headerText="Nome" filterBy="#{list.nome}" filterMatchMode="contains">
+					<h:outputText value="#{list.nome}" />
+				</p:column>
 
+				<p:column headerText="Endereço" filterBy="#{list.endereco}" filterMatchMode="contains">
+					<h:outputText value="#{list.endereco}" />
+				</p:column>
+
+				<p:column headerText="Telefone"  filterBy="#{list.telefone}" filterMatchMode="contains">
+					<h:outputText value="#{list.telefone}" />
+				</p:column>
+
+				<p:column headerText="Cpf"  filterBy="#{list.cpf}" filterMatchMode="contains">
+					<h:outputText value="#{list.cpf}" />
+				</p:column>
+
+				<p:column headerText="Cód. do Conselho"  filterBy="#{list.codigoDoConselho}" filterMatchMode="contains">
+					<h:outputText value="#{list.codigoDoConselho}" />
+				</p:column>
+
+				<p:column headerText="Descrição Profissional"  filterBy="#{list.descProfissional}" filterMatchMode="contains">
+					<h:outputText value="#{list.descProfissional}" />
+				</p:column>
+
+				<p:column headerText="Profissão"  filterBy="#{list.profissao}" filterMatchMode="contains">
+					<h:outputText value="#{list.profissao}" />
+				</p:column>
+
+				<p:column headerText="Especialidade"  filterBy="#{list.profissao}" filterMatchMode="contains">
+					<h:outputText value="#{list.especialidade}" />
+				</p:column>
+
+				<p:column headerText="Data do Cadastro"  filterBy="#{list.dataCadastro}" filterMatchMode="contains">
+					<h:outputText value="#{list.dataCadastro}" />
+				</p:column>
+
+
+
+			</p:dataTable>
+
+
+
+		</h:form>
 
 	</ui:define>
 </ui:composition>
