@@ -9,6 +9,7 @@
 <ui:composition template="template.xhtml">
 
 	<ui:define name="formCadastro">
+		<p:growl id="messages" autoUpdate="true" />
 		<h:form>
 			<h:panelGroup>
 
@@ -17,37 +18,35 @@
 					<h:panelGrid columns="2" columnClasses="label,value">
 
 						<h:outputLabel value="Nome" />
-						<p:inputText label="nome" value="#{bean.profissional.nome}" />
+						<p:inputText label="nome" value="#{bean.profissional.nome}" required="true" requiredMessage="Campo nome é obrigatório" />
 						<h:outputLabel value="Endereço" />
-						<p:inputText label="endereço"
+						<p:inputText label="endereço" required="true" requiredMessage="Campo endereço é Obrigatório"
 							value="#{bean.profissional.endereco}" />
 						<h:outputLabel value="Telefone" />
-						<p:inputMask mask="(99)999999999" label="telefone"
+						<p:inputMask mask="(99)999999999" label="telefone" required="true" requiredMessage="Campo telefone é origatório"
 							value="#{bean.profissional.telefone}" />
 						<h:outputLabel value="Cpf" />
-						<p:inputMask mask="999.999.999-99" label="cpf"
-							value="#{bean.profissional.cpf}"
-							requiredMessage="Preenchimento Obrigatório" />
+						<p:inputMask mask="999.999.999-99" label="cpf" required="true" requiredMessage="Campo cpf é obrigatório"
+							value="#{bean.profissional.cpf}"/>
 						<h:outputLabel value="Código do Conselho" />
-						<p:inputText label="cc"
-							value="#{bean.profissional.codigoDoConselho}"
-							requiredMessage="Preenchimento Obrigatório" />
+						<p:inputText label="cc" required="true" requiredMessage="Campo código do conselho é obrigatório"
+							value="#{bean.profissional.codigoDoConselho}"/>
 						<h:outputLabel value="Profissão" />
 						<p:inputText label="profissão"
 							value="#{bean.profissional.profissao}"
-							requiredMessage="Preenchimento Obrigatório" />
+							required="true" requiredMessage="Campo profissão é obrigatório" />
 						<h:outputLabel value="Especialidade" />
 						<p:inputText label="Especialidade"
 							value="#{bean.profissional.especialidade}"
-							requiredMessage="Preenchimento Obrigatório" />
+							required="true" requiredMessage="Campo especialidade é obrigatório" />
 						<h:outputLabel value="Data do Cadastro" />
 						<p:inputMask mask="99/99/9999"
 							value="#{bean.profissional.dataCadastro}"
-							requiredMessage="Preenchimento Obrigatório" />
+							required="true" requiredMessage="Campo data do cadastro é obrigatório" />
 						<h:outputLabel value="Descrição Profissional" />
 						<p:inputTextarea label="dp"
 							value="#{bean.profissional.descProfissional}"
-							requiredMessage="Preenchimento Obrigatório" />
+							required="true" requiredMessage="Campo descrição profissional é obrigatório" />
 						<p:commandButton value="Cadastrar"
 							actionListener="#{bean.addProfissional}" id="form" update=":formTab">
 							<p:ajax execute="@form" render=":tab" />
