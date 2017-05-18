@@ -1,40 +1,45 @@
 package com.br.projetoWeb.entidade;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Profissional extends Entidade {
-	  private long codigoDoConselho;
-	  
-	  //
-	  // Constructors
-	  //
-	  public Profissional () { };
-	  
-	  //
-	  // Methods
-	  //
+	private long codigoDoConselho;
+	private String cpf;	
+	
+	
+public Profissional() {
+	
+	};
+	
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
 
-	  //
-	  // Accessor methods
-	  //
+	public long getCodigoDoConselho() {
+		return codigoDoConselho;
+	}
 
-	  /**
-	   * Set the value of codigoDoConselho
-	   * @param newVar the new value of codigoDoConselho
-	   */
-	  private void setCodigoDoConselho (long newVar) {
-	    codigoDoConselho = newVar;
-	  }
 
-	  /**
-	   * Get the value of codigoDoConselho
-	   * @return the value of codigoDoConselho
-	   */
-	  private long getCodigoDoConselho () {
-	    return codigoDoConselho;
-	  }
+	public void setCodigoDoConselho(long codigoDoConselho) {
+		this.codigoDoConselho = codigoDoConselho;
+	}
 
-	  //
-	  // Other methods
-	  //
+	@Override
+	public String toString() {
+		return "Profissional [codigoDoConselho=" + codigoDoConselho + ", cpf=" + cpf + ", getCpf()=" + getCpf()
+				+ ", getCodigoDoConselho()=" + getCodigoDoConselho() + ", getNome()=" + getNome() + ", getEndereco()="
+				+ getEndereco() + ", getTelefone()=" + getTelefone() + ", getDescProfissional()="
+				+ getDescProfissional() + ", getProfissao()=" + getProfissao() + ", getEspecialidade()="
+				+ getEspecialidade() + ", getComentarios()=" + getComentarios() + ", getDataCadastro()="
+				+ getDataCadastro() + ", getLogin()=" + getLogin() + ", getSenha()=" + getSenha() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+	}
+
+
 
 }

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title><ui:insert name="title">Policlinica Web</ui:insert></title>
+	<link
+		href="${facesContext.externalContext.requestContextPath}/css/login.css"
+		rel="stylesheet" type="text/css" media="screen" />
+</h:head>
+
+<h:body>
+	<div id="body">
+		<p:layout fullPage="true" id="lay">
+
+			<p:layoutUnit position="north" size="100" resizable="true"
+				closable="true" collapsible="true">
+				<center>
+					<font size="6">Policlinica web</font>
+				</center>
+			</p:layoutUnit>
+
+
+			<p:layoutUnit position="west" minSize="40" id="layoutMenu">
+				<h:form style="">
+					<p:menu>
+						<p:submenu label="Menu" position="center">
+							<p:menuitem value="Home" action="index?faces-redirect=true" />
+							<p:menuitem value="Pesquisar Funcionário" action="dadosEntidade?faces-redirect=true" />
+							<p:menuitem value="Administrador" action="login?faces-redirect=true" />
+
+						</p:submenu>
+					</p:menu>
+				</h:form>
+
+			</p:layoutUnit>
+
+
+			<p:layoutUnit position="center">
+			<ui:insert name="formComentario">
+				</ui:insert>
+				<div id="img">
+				
+					<ui:insert name="image">
+
+					</ui:insert>
+
+					<ui:insert name="login">
+
+					</ui:insert>
+					</div>
+					<di id="tabelaPesquisa">
+					<ui:insert name="pesquisarEntidade">
+					
+					</ui:insert>
+					</di>
+			</p:layoutUnit>
+		</p:layout>
+
+	</div>
+</h:body>
+
+</html>

@@ -1,229 +1,120 @@
 package com.br.projetoWeb.entidade;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/*@Entity
+@Table (name="entidade")*/
 public class Entidade {
-	
-	  private String nome;
-	  private String endereco;
-	  private long telefone;
-	  private String descProfissional;
-	  private String profissao;
-	  private String especialidade;
-	  private String comentario;
-	  private String dataCadastro;
-	  private long cpf;
-	  private long cnpj;
-	  private String login;
-	  private String senha;
-	  
-	  //
-	  // Constructors
-	  //
-	  public Entidade () { };
-	  
-	  //
-	  // Methods
-	  //
+	/*
+	 * @Id
+	 * 
+	 * @GeneratedValue//paraou aqui pesquisar sobre chave candidata
+	 */
+	private String nome;
+	private String endereco;
+	private String telefone;
+	private String descProfissional;
+	private String profissao;
+	private String especialidade;
+	private List<Comentario> comentarios = new ArrayList<Comentario>();
+	private String dataCadastro;
+	private String login;
+	private String senha;
 
+	//
+	// Constructors
+	//
 
-	  //
-	  // Accessor methods
-	  //
+	public Entidade() {
+	}
 
-	  /**
-	   * Set the value of nome
-	   * @param newVar the new value of nome
-	   */
-	  private void setNome (String newVar) {
-	    nome = newVar;
-	  }
+	public String getNome() {
+		return nome;
+	}
 
-	  /**
-	   * Get the value of nome
-	   * @return the value of nome
-	   */
-	  private String getNome () {
-	    return nome;
-	  }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-	  /**
-	   * Set the value of endereco
-	   * @param newVar the new value of endereco
-	   */
-	  private void setEndereco (String newVar) {
-	    endereco = newVar;
-	  }
+	public String getEndereco() {
+		return endereco;
+	}
 
-	  /**
-	   * Get the value of endereco
-	   * @return the value of endereco
-	   */
-	  private String getEndereco () {
-	    return endereco;
-	  }
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
 
-	  /**
-	   * Set the value of telefone
-	   * @param newVar the new value of telefone
-	   */
-	  private void setTelefone (long newVar) {
-	    telefone = newVar;
-	  }
+	public String getTelefone() {
+		return telefone;
+	}
 
-	  /**
-	   * Get the value of telefone
-	   * @return the value of telefone
-	   */
-	  private long getTelefone () {
-	    return telefone;
-	  }
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 
-	  /**
-	   * Set the value of descProfissional
-	   * @param newVar the new value of descProfissional
-	   */
-	  private void setDescProfissional (String newVar) {
-	    descProfissional = newVar;
-	  }
+	public String getDescProfissional() {
+		return descProfissional;
+	}
 
-	  /**
-	   * Get the value of descProfissional
-	   * @return the value of descProfissional
-	   */
-	  private String getDescProfissional () {
-	    return descProfissional;
-	  }
+	public void setDescProfissional(String descProfissional) {
+		this.descProfissional = descProfissional;
+	}
 
-	  /**
-	   * Set the value of profissao
-	   * @param newVar the new value of profissao
-	   */
-	  private void setProfissao (String newVar) {
-	    profissao = newVar;
-	  }
+	public String getProfissao() {
+		return profissao;
+	}
 
-	  /**
-	   * Get the value of profissao
-	   * @return the value of profissao
-	   */
-	  private String getProfissao () {
-	    return profissao;
-	  }
+	public void setProfissao(String profissao) {
+		this.profissao = profissao;
+	}
 
-	  /**
-	   * Set the value of especialidade
-	   * @param newVar the new value of especialidade
-	   */
-	  private void setEspecialidade (String newVar) {
-	    especialidade = newVar;
-	  }
+	public String getEspecialidade() {
+		return especialidade;
+	}
 
-	  /**
-	   * Get the value of especialidade
-	   * @return the value of especialidade
-	   */
-	  private String getEspecialidade () {
-	    return especialidade;
-	  }
+	public void setEspecialidade(String especialidade) {
+		this.especialidade = especialidade;
+	}
 
-	  /**
-	   * Set the value of comentario
-	   * @param newVar the new value of comentario
-	   */
-	  private void setComentario (String newVar) {
-	    comentario = newVar;
-	  }
+	public List<Comentario> getComentarios() {
+		return comentarios;
+	}
 
-	  /**
-	   * Get the value of comentario
-	   * @return the value of comentario
-	   */
-	  private String getComentario () {
-	    return comentario;
-	  }
+	public void setComentarios(List<Comentario> comentarios) {
+		this.comentarios = comentarios;
+	}
 
-	  /**
-	   * Set the value of dataCadastro
-	   * @param newVar the new value of dataCadastro
-	   */
-	  private void setDataCadastro (String newVar) {
-	    dataCadastro = newVar;
-	  }
+	public String getDataCadastro() {
+		return dataCadastro;
+	}
 
-	  /**
-	   * Get the value of dataCadastro
-	   * @return the value of dataCadastro
-	   */
-	  private String getDataCadastro () {
-	    return dataCadastro;
-	  }
+	public void setDataCadastro(String dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
 
-	  /**
-	   * Set the value of cpf
-	   * @param newVar the new value of cpf
-	   */
-	  private void setCpf (long newVar) {
-	    cpf = newVar;
-	  }
+	public String getLogin() {
+		return login;
+	}
 
-	  /**
-	   * Get the value of cpf
-	   * @return the value of cpf
-	   */
-	  private long getCpf () {
-	    return cpf;
-	  }
+	public void setLogin(String login) {
+		this.login = login;
+	}
 
-	  /**
-	   * Set the value of cnpj
-	   * @param newVar the new value of cnpj
-	   */
-	  private void setCnpj (long newVar) {
-	    cnpj = newVar;
-	  }
+	public String getSenha() {
+		return senha;
+	}
 
-	  /**
-	   * Get the value of cnpj
-	   * @return the value of cnpj
-	   */
-	  private long getCnpj () {
-	    return cnpj;
-	  }
+	public void setSenha(String senha) {
+		this.senha = senha;
+	};
 
-	  /**
-	   * Set the value of login
-	   * @param newVar the new value of login
-	   */
-	  private void setLogin (String newVar) {
-	    login = newVar;
-	  }
+	//
+	// Methods
+	//
 
-	  /**
-	   * Get the value of login
-	   * @return the value of login
-	   */
-	  private String getLogin () {
-	    return login;
-	  }
+	//
+	// Accessor methods
+	//
 
-	  /**
-	   * Set the value of senha
-	   * @param newVar the new value of senha
-	   */
-	  private void setSenha (String newVar) {
-	    senha = newVar;
-	  }
-
-	  /**
-	   * Get the value of senha
-	   * @return the value of senha
-	   */
-	  private String getSenha () {
-	    return senha;
-	  }
-
-	  //
-	  // Other methods
-	  //
-
-	
 }

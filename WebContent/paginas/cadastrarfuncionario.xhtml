@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="template.xhtml">
+
+	<ui:define name="formCadastro">
+		<h:form>
+			<h:panelGroup>
+
+				<p:panel header="Cadastrar Funcionário">
+
+					<h:panelGrid columns="2" columnClasses="label,value">
+
+						<h:outputLabel value="Nome" />
+						<p:inputText label="nome" value="#{bean.profissional.nome}" />
+						<h:outputLabel value="Endereço" />
+						<p:inputText label="endereço"
+							value="#{bean.profissional.endereco}" />
+						<h:outputLabel value="Telefone" />
+						<p:inputMask mask="(99)999999999" label="telefone"
+							value="#{bean.profissional.telefone}" />
+						<h:outputLabel value="Cpf" />
+						<p:inputMask mask="999.999.999-99" label="cpf"
+							value="#{bean.profissional.cpf}"
+							requiredMessage="Preenchimento Obrigatório" />
+						<h:outputLabel value="Código do Conselho" />
+						<p:inputText label="cc"
+							value="#{bean.profissional.codigoDoConselho}"
+							requiredMessage="Preenchimento Obrigatório" />
+						<h:outputLabel value="Profissão" />
+						<p:inputText label="profissão"
+							value="#{bean.profissional.profissao}"
+							requiredMessage="Preenchimento Obrigatório" />
+						<h:outputLabel value="Especialidade" />
+						<p:inputText label="Especialidade"
+							value="#{bean.profissional.especialidade}"
+							requiredMessage="Preenchimento Obrigatório" />
+						<h:outputLabel value="Data do Cadastro" />
+						<p:inputMask mask="99/99/9999"
+							value="#{bean.profissional.dataCadastro}"
+							requiredMessage="Preenchimento Obrigatório" />
+						<h:outputLabel value="Descrição Profissional" />
+						<p:inputTextarea label="dp"
+							value="#{bean.profissional.descProfissional}"
+							requiredMessage="Preenchimento Obrigatório" />
+						<p:commandButton value="Cadastrar"
+							actionListener="#{bean.addProfissional}" id="form" update=":formTab">
+							<p:ajax execute="@form" render=":tab" />
+
+						</p:commandButton>
+
+					</h:panelGrid>
+
+				</p:panel>
+
+
+			</h:panelGroup>
+
+		</h:form>
+
+		<h:form id="formTab">
+			<p:dataTable value="#{bean.listProfissional}" var="list" border="1"
+				id="tab" cellpandding="2" cellspacing="0" widgetVar="listTableFuncionario">
+				
+				<f:facet name="header">
+				<p:outputPanel>
+					<h:outputText value="Search all fields:" />
+					<p:inputText id="globalFilter" onkeyup="PF('listTableFuncionario').filter()"
+						style="width:150px" placeholder="Enter keyword" />
+				</p:outputPanel>
+			</f:facet>
+		
+
+
+
+				<p:column headerText="Nome" filterBy="#{list.nome}" filterMatchMode="contains">
+					<h:outputText value="#{list.nome}" />
+				</p:column>
+
+				<p:column headerText="Endereço" filterBy="#{list.endereco}" filterMatchMode="contains">
+					<h:outputText value="#{list.endereco}" />
+				</p:column>
+
+				<p:column headerText="Telefone"  filterBy="#{list.telefone}" filterMatchMode="contains">
+					<h:outputText value="#{list.telefone}" />
+				</p:column>
+
+				<p:column headerText="Cpf"  filterBy="#{list.cpf}" filterMatchMode="contains">
+					<h:outputText value="#{list.cpf}" />
+				</p:column>
+
+				<p:column headerText="Cód. do Conselho"  filterBy="#{list.codigoDoConselho}" filterMatchMode="contains">
+					<h:outputText value="#{list.codigoDoConselho}" />
+				</p:column>
+
+				<p:column headerText="Descrição Profissional"  filterBy="#{list.descProfissional}" filterMatchMode="contains">
+					<h:outputText value="#{list.descProfissional}" />
+				</p:column>
+
+				<p:column headerText="Profissão"  filterBy="#{list.profissao}" filterMatchMode="contains">
+					<h:outputText value="#{list.profissao}" />
+				</p:column>
+
+				<p:column headerText="Especialidade"  filterBy="#{list.profissao}" filterMatchMode="contains">
+					<h:outputText value="#{list.especialidade}" />
+				</p:column>
+
+				<p:column headerText="Data do Cadastro"  filterBy="#{list.dataCadastro}" filterMatchMode="contains">
+					<h:outputText value="#{list.dataCadastro}" />
+				</p:column>
+
+
+
+			</p:dataTable>
+
+
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+
+
+
+</html>

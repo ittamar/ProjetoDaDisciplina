@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="template.xhtml">
+
+	<ui:define name="formCadastro">
+	
+		<h:form>
+			<h:panelGroup>
+
+				<p:panel header="Cadastrar Empresa">
+
+					<h:panelGrid columns="2" columnClasses="label,value">
+
+						<h:outputLabel value="Nome Fantasia" />
+						<p:inputText value="#{bean.empresa.nomeFantasia}"  id="nomeFantasia">
+						<f:ajax event="focus"/>
+						</p:inputText>
+						<h:outputLabel value="Endereço" />
+						<p:inputText label="endereço" value="#{bean.empresa.endereco}" />
+						<h:outputLabel value="Telefone" />
+						<p:inputMask mask="(99)9999-9999" value="#{bean.empresa.telefone}" />
+						<h:outputLabel value="Cnpj" />
+						<p:inputMask mask="999.999.999-99" label="cnpj" value="#{bean.empresa.cnpj}" />
+						<h:outputLabel value="Data do Cadastro" />
+						<p:inputMask mask="99/99/9999"
+							value="#{bean.empresa.dataCadastro}" />
+						<p:commandButton value="Cadastrar"
+							actionListener="#{bean.addEmpresa}" update=":formTabEmpresa">
+							<f:ajax execute="@form" render="@form"/>
+						</p:commandButton>
+					</h:panelGrid>
+				</p:panel>
+
+			</h:panelGroup>
+			
+		</h:form>
+		
+		<h:form id="formTabEmpresa">
+		<p:dataTable value="#{bean.listEmpresa}" var="listEmpresa"  border="1" id="tabEmpresa" cellpandding="2" cellspacing="0" widgetVar="listTable" >
+		
+		<f:facet name="header">
+				<p:outputPanel>
+					<h:outputText value="Search all fields:" />
+					<p:inputText id="globalFilter" onkeyup="PF('listTable').filter()"
+						style="width:150px" placeholder="Enter keyword" />
+				</p:outputPanel>
+			</f:facet>
+		
+		
+		<p:column headerText="Nome Fantasia" filterBy="#{listEmpresa.nomeFantasia}" filterMatchMode="contains">
+		<h:outputText value="#{listEmpresa.nomeFantasia}" />		
+		</p:column>
+		
+		<p:column headerText="Endereço" filterBy="#{listEmpresa.endereco}" filterMatchMode="contains">
+		<h:outputText value="#{listEmpresa.endereco}" />		
+		</p:column>
+		
+		<p:column headerText="Telefone"  filterBy="#{listEmpresa.telefone}" filterMatchMode="contains">
+		<h:outputText value="#{listEmpresa.telefone}" />		
+		</p:column>
+		
+		<p:column headerText="Cnpj" filterBy="#{listEmpresa.cnpj}" filterMatchMode="contains">
+		<h:outputText value="#{listEmpresa.cnpj}" />		
+		</p:column>
+		
+		<p:column headerText="Data de Cadastro" filterBy="#{listEmpresa.dataCadastro}" filterMatchMode="contains">
+		<h:outputText value="#{listEmpresa.dataCadastro}" />		
+		</p:column>
+		
+		</p:dataTable>
+		</h:form>
+
+	</ui:define>
+
+</ui:composition>
+
+
+
+</html>

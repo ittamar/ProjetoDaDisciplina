@@ -5,36 +5,49 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
-<h:head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Insert title here</title>
-		<link href="${facesContext.externalContext.requestContextPath}/css/login.css" rel="stylesheet" type="text/css" media="screen" />
-	
+
+<h:head />
+
+<ui:composition template="templateindex.xhtml">
+
+	<ui:define name="login">
+		<p:growl id="messages" autoUpdate="true" />
+		
+		<h:form style="margin:15% 38%" id="grid">
+
+			<p:panelGrid columns="2">
 
 
-</h:head>
+				<f:facet name="header">Login</f:facet>
 
-<h:body class="campo" >
-
-	<h:form style="margin:15% 38%">
-		<p:panelGrid columns="2">
-
-			<f:facet name="header">Login</f:facet>
-			<h:outputLabel styleClass="top" for="nome" value="Usuário" />
-			<h:inputText id="nome" />
-			<h:outputLabel for="senha" value="Senha" />
-			<h:inputSecret value="" id="senha" />
-
-			<h:commandButton value="Entrar" />
+				<p:outputLabel styleClass="top" for="nome" value="Usuário" />
 
 
-		</p:panelGrid>
+				<p:inputText id="nome" value="#{bean.entidade.login}"
+					 required="true" requiredMessage="Campo Obrigatório">
+					<f:ajax event="blur" render="logo" />
+				</p:inputText>
 
+				<p:outputLabel for="senha" value="Senha" />
 
-	</h:form>
+				<h:inputSecret id="senha" value="#{bean.entidade.senha}"
+					requiredMessage="Campo Obrigatório" />
 
 
 
+				<p:commandButton value="Entrar" action="#{bean.login}" update="grid"
+					id="button">
+					<f:ajax execute="@form" />
+				</p:commandButton>
 
-</h:body>
+
+
+			</p:panelGrid>
+
+<p:growl id="logo" for="nome" />
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
 </html>
