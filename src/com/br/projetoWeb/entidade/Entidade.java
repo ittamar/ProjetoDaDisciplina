@@ -1,32 +1,33 @@
 package com.br.projetoWeb.entidade;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
 /*@Entity
 @Table (name="entidade")*/
 public class Entidade {
-	  /* @Id
-	   @GeneratedValue//paraou aqui pesquisar sobre chave candidata
-*/	 
-	  private String nome;
-	  private String endereco;
-	  private String telefone;
-	  private String descProfissional;
-	  private String profissao;
-	  private String especialidade;
-     private String comentario;
-	  private String dataCadastro;
-	  private String login;
-	  private String senha;
-	  
-	  //
-	  // Constructors
-	  //
-	
-	  public Entidade () { }
+	/*
+	 * @Id
+	 * 
+	 * @GeneratedValue//paraou aqui pesquisar sobre chave candidata
+	 */
+	private String nome;
+	private String endereco;
+	private String telefone;
+	private String descProfissional;
+	private String profissao;
+	private String especialidade;
+	private List<Comentario> comentarios = new ArrayList<Comentario>();
+	private String dataCadastro;
+	private String login;
+	private String senha;
+
+	//
+	// Constructors
+	//
+
+	public Entidade() {
+	}
 
 	public String getNome() {
 		return nome;
@@ -76,12 +77,12 @@ public class Entidade {
 		this.especialidade = especialidade;
 	}
 
-	public String getComentario() {
-		return comentario;
+	public List<Comentario> getComentarios() {
+		return comentarios;
 	}
 
-	public void setComentario(String comentario) {
-		this.comentario = comentario;
+	public void setComentarios(List<Comentario> comentarios) {
+		this.comentarios = comentarios;
 	}
 
 	public String getDataCadastro() {
@@ -107,17 +108,13 @@ public class Entidade {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	};
-	  
-	  //
-	  // Methods
-	  //
 
+	//
+	// Methods
+	//
 
-	  //
-	  // Accessor methods
-	  //
-	  
-	  
+	//
+	// Accessor methods
+	//
 
-	
 }
