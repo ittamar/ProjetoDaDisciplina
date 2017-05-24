@@ -9,47 +9,79 @@
 	<ui:define name="pesquisarEntidade">
 
 
- <h:form>
-		<p:dataTable value="#{bean.listProfissional}" var="list" border="1"
-			id="tab" cellpandding="2" cellspacing="0" widgetVar="listTabDadosEntidade">
-			
-			
-			<f:facet name="header">
-				<p:outputPanel>
-					<h:outputText value="Search all fields:" />
-					<p:inputText id="globalFilter" onkeyup="PF('listTabDadosEntidade').filter()"
-						style="width:150px" placeholder="Enter keyword" />
-				</p:outputPanel>
-			</f:facet>
+		<h:form id="form">
+			<p:dataTable value="#{bean.listProfissional}" var="list" border="1"
+				id="tab" cellpandding="2" cellspacing="0"
+				widgetVar="listTabDadosEntidade">
 
-			
-			<p:column headerText="Nome" filterBy="#{list.nome}"
-				filterMatchMode="contains">
-				<p:commandLink action="comentario?faces-redirect=true"
-					value="#{list.nome}" />
-			</p:column>
-			
-					<p:column headerText="Descrição Profissional" filterBy="#{list.descProfissional}"
-				filterMatchMode="contains">
-				<h:outputText value="#{list.descProfissional}" />
-			</p:column>
-			
-			
-			<p:column headerText="Profissão" filterBy="#{list.profissao}"
-				filterMatchMode="contains">
-				<p:commandLink action="comentario?faces-redirect=true"
-					value="#{list.profissao}" />
-			</p:column>
 
-			<p:column headerText="Especialidade" filterBy="#{list.especialidade}"
-				filterMatchMode="contains">
-				<p:commandLink action="comentario?faces-redirect=true"
-					value="#{list.especialidade}" />
-			</p:column>
+				<f:facet name="header">
+					<p:outputPanel>
+						<h:outputText value="Search all fields:" />
+						<p:inputText id="globalFilter"
+							onkeyup="PF('listTabDadosEntidade').filter()" style="width:150px"
+							placeholder="Enter keyword" />
+					</p:outputPanel>
+				</f:facet>
 
-		</p:dataTable>
 
-</h:form>
+				<p:column headerText="Nome" filterBy="#{list.nome}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{list.nome}" />
+				</p:column>
+
+				<p:column headerText="Descrição Profissional"
+					filterBy="#{list.descProfissional}" filterMatchMode="contains">
+					<h:outputText value="#{list.descProfissional}" />
+				</p:column>
+
+
+				<p:column headerText="Profissão" filterBy="#{list.profissao}"
+					filterMatchMode="contains">
+					<p:commandLink action="comentario?faces-redirect=true"
+						value="#{list.profissao}" />
+				</p:column>
+
+				<p:column headerText="Especialidade"
+					filterBy="#{list.especialidade}" filterMatchMode="contains">
+					<p:commandLink action="comentario?faces-redirect=true"
+						value="#{list.especialidade}" />
+				</p:column>
+
+				<p:column style="width:32px;text-align: center">
+					<p:commandButton update=":form" oncomplete="PF('dialog').show()"
+						icon="ui-icon-pencil" title="comentar">
+						<f:setPropertyActionListener value="#{listPro}"
+							target="#{bean.profissional}" />
+
+					</p:commandButton>
+				</p:column>
+
+
+			</p:dataTable>
+
+			<p:dialog header="Inseri Comentário" widgetVar="dialog"
+				resizable="false">
+
+
+				<h:panelGrid>
+					<h:outputText value="Nome" />
+					<p:inputText />
+					<h:outputText value="Telefone" />
+					<p:inputText />
+					<h:outputText value="Email:" />
+					<p:inputText />
+					<h:outputText value="Comentário" />
+					<p:inputTextarea />
+					<p:commandButton  />
+
+
+				</h:panelGrid>
+
+
+			</p:dialog>
+
+		</h:form>
 
 
 

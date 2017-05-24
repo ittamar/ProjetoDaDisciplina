@@ -1,57 +1,32 @@
 package com.br.projetoWeb.entidade;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
 
-public class Empresa extends Entidade{
+@Entity
+@PrimaryKeyJoinColumn(name = "codEntidade")
+public class Empresa extends Entidade {
 
 	private String nomeFantasia;
 	private String cnpj;
 	Profissional profi;
-	/*List<Empresa> empresa = new ArrayList<Empresa>();
-	private Empresa emp;
-	private Entidade ent;*/
 
-	//
-	// Constructors
-	//
 	public Empresa() {
-		
-      //emp = new Empresa();
-      
+		super();
+
 	};
-	
 
 	public String getNomeFantasia() {
 		return nomeFantasia;
 	}
 
-
 	public void setNomeFantasia(String nomeFantasia) {
 		this.nomeFantasia = nomeFantasia;
 	}
 
-
-	/**
-	 * Set the value of nomeFantasia
-	 * 
-	 * @param newVar
-	 *            the new value of nomeFantasia
-	 */
-	
-	
-
 	public Profissional getProfi() {
 		return profi;
 	}
-
-	/*public List<Empresa> getEmpresa() {
-		return empresa;
-	}
-
-	public void setEmpresa(List<Empresa> empresa) {
-		this.empresa = empresa;
-	}*/
 
 	public void setProfi(Profissional profi) {
 		this.profi = profi;
@@ -65,13 +40,9 @@ public class Empresa extends Entidade{
 		this.cnpj = cnpj;
 	}
 
-	/*public void addEmpresa(){
-		this.empresa.add(emp);
-		this.emp = new Empresa();
-		this.ent = new Entidade();
-		
-		
-		
-	}*/
+	@Override
+	public String toString() {
+		return "Empresa [nomeFantasia=" + nomeFantasia + ", cnpj=" + cnpj + ", profi=" + profi + "]";
+	}
 
 }
