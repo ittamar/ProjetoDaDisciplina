@@ -7,7 +7,8 @@
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<title><ui:insert name="title">Policlinica Web</ui:insert></title>
-
+	<link
+		href="${facesContext.externalContext.requestContextPath}/css/login.css"
 		rel="stylesheet" type="text/css" media="screen" />
 </h:head>
 
@@ -23,7 +24,43 @@
 			</p:layoutUnit>
 
 
+			<p:layoutUnit position="west" minSize="40" id="layoutMenu">
+				<h:form style="">
+					<p:menu>
+						<p:submenu label="Menu" position="center">
+							<p:menuitem value="Home" action="index?faces-redirect=true" />
+							<p:menuitem value="Pesquisar Funcionário" action="dadosEntidade?faces-redirect=true" />
+							<p:menuitem value="Administrador" action="login?faces-redirect=true" />
 
-	
+						</p:submenu>
+					</p:menu>
+				</h:form>
 
-			
+			</p:layoutUnit>
+
+
+			<p:layoutUnit position="center">
+			<ui:insert name="formComentario">
+				</ui:insert>
+				<div id="img">
+				
+					<ui:insert name="image">
+
+					</ui:insert>
+
+					<ui:insert name="login">
+
+					</ui:insert>
+					</div>
+					<di id="tabelaPesquisa">
+					<ui:insert name="pesquisarEntidade">
+					
+					</ui:insert>
+					</di>
+			</p:layoutUnit>
+		</p:layout>
+
+	</div>
+</h:body>
+
+</html>

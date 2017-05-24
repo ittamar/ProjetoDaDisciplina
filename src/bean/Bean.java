@@ -5,67 +5,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-import com.br.projetoWeb.entidade.Comentario;
 import com.br.projetoWeb.entidade.Empresa;
 import com.br.projetoWeb.entidade.Entidade;
 import com.br.projetoWeb.entidade.Paciente;
 import com.br.projetoWeb.entidade.Profissional;
 
 @ManagedBean(name = "bean")
-@ApplicationScoped
+@SessionScoped
 public class Bean implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+
 	private String nome;
-	private Entidade entidade;
-	private Empresa empresa;
+	private Entidade entidade = new Entidade();
+	private Empresa empresa = new Empresa();
 	private Paciente paciente;
-	private Profissional profissional;
-	private Comentario comentario;
-	Profissional pro = new Profissional();
+	private Profissional profissional = new Profissional();
 	private List<Empresa> listEmpresa = new ArrayList<Empresa>();
-	private List<Comentario> listComentario = new ArrayList();
-	private List<Profissional> listProfissional;
-	// private List<Profissional> listFiltro;
-	// private HtmlDataTable tabelaU;
+	private List<Profissional> listProfissional = new ArrayList<Profissional>();
 
 	public Bean() {
 
 		entidade = new Entidade();
 		profissional = new Profissional();
-		comentario = new Comentario();
 		empresa = new Empresa();
 
 	}
 
 	/*
-	 * public List<Profissional> getListFiltro() { return listFiltro; }
+	 * public Comentario getComentario() { return comentario; }
 	 * 
-	 * public void setListFiltro(List<Profissional> listFiltro) {
-	 * this.listFiltro = listFiltro; }
+	 * public void setComentario(Comentario comentario) { this.comentario =
+	 * comentario; }
 	 */
-	public List<Comentario> getListComentario() {
-		return listComentario;
-	}
-
-	public void setListComentario(List<Comentario> listComentario) {
-		this.listComentario = listComentario;
-	}
-
-	public Comentario getComentario() {
-		return comentario;
-	}
-
-	public void setComentario(Comentario comentario) {
-		this.comentario = comentario;
-	}
-
 	public List<Empresa> getListEmpresa() {
 		return listEmpresa;
 	}
@@ -82,18 +56,6 @@ public class Bean implements Serializable {
 		this.nome = nome;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	public Profissional getPro() {
-		return pro;
-	}
-
-	public void setPro(Profissional pro) {
-		this.pro = pro;
-	}
-
 	public List<Profissional> getListProfissional() {
 		return listProfissional;
 	}
@@ -103,7 +65,6 @@ public class Bean implements Serializable {
 	}
 
 	public String login() {
-		System.out.println(entidade.getNome());
 
 		if (entidade.getLogin().equals("admin") && entidade.getSenha().equals("admin")) {
 
@@ -152,34 +113,32 @@ public class Bean implements Serializable {
 		this.profissional = profissional;
 	}
 
-	public void addProfissional() {
-
-		listProfissional.add(profissional);
-		// this.entidade = new Entidade();
-		this.profissional = new Profissional();
-
-	}
-
 	public void addEmpresa() {
+
 		listEmpresa.add(empresa);
 		this.empresa = new Empresa();
 
 	}
 
-	public void addComentario() {
-		listComentario.add(comentario);
-		// this.entidade = new Entidade();
-		this.comentario = new Comentario();
+	public void addPro() {
+
+		listProfissional.add(profissional);
+		this.profissional = new Profissional();
 
 	}
 
-	/*
-	 * public String ativar(ActionEvent e) { tabelaU.getRowData(); return
-	 * "comentario?faces-redirect=true"; }
-	 * 
-	 * public HtmlDataTable getTabelaU() { return tabelaU; }
-	 * 
-	 * public void setTabelaU(HtmlDataTable tabelaU) { this.tabelaU = tabelaU; }
-	 */
+	// método para remover profissional
+	public void removerListaProfissional(Profissional profissional) {
+		this.profissional = new Profissional();
+		listProfissional.remove(profissional);
+
+	}
+
+	// método para remover empresa
+	public void removerEmpresa(Empresa empresa) {
+		this.empresa = new Empresa();
+		listEmpresa.remove(empresa);
+
+	}
 
 }

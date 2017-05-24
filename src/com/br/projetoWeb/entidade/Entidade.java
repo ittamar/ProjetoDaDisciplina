@@ -3,30 +3,45 @@ package com.br.projetoWeb.entidade;
 import java.util.ArrayList;
 import java.util.List;
 
-/*@Entity
-@Table (name="entidade")*/
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Entidade {
-	/*
-	 * @Id
-	 * 
-	 * @GeneratedValue//paraou aqui pesquisar sobre chave candidata
-	 */
+
+	// private static final GenerationType strategy = null;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long codEntidade;
 	private String nome;
 	private String endereco;
 	private String telefone;
 	private String descProfissional;
 	private String profissao;
 	private String especialidade;
+	// @OneToMany(mappedBy = "entidade")
 	private List<Comentario> comentarios = new ArrayList<Comentario>();
 	private String dataCadastro;
 	private String login;
 	private String senha;
 
-	//
-	// Constructors
-	//
-
 	public Entidade() {
+		super();
+
+	}
+
+	public long getCodEntidade() {
+		return codEntidade;
+	}
+
+	public void setCodEntidade(long codEntidade) {
+		this.codEntidade = codEntidade;
 	}
 
 	public String getNome() {
@@ -107,14 +122,20 @@ public class Entidade {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	};
+	}
 
-	//
-	// Methods
-	//
+	public void addComentario() {
+		Comentario comentar = new Comentario();
+		comentarios.add(comentar);
 
-	//
-	// Accessor methods
-	//
+	}
+
+	@Override
+	public String toString() {
+		return "Entidade [codEntidade=" + codEntidade + ", nome=" + nome + ", endereco=" + endereco + ", telefone="
+				+ telefone + ", descProfissional=" + descProfissional + ", profissao=" + profissao + ", especialidade="
+				+ especialidade + ", comentarios=" + comentarios + ", dataCadastro=" + dataCadastro + ", login=" + login
+				+ ", senha=" + senha + "]";
+	}
 
 }

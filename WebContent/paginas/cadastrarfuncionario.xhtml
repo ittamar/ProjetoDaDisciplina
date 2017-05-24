@@ -10,6 +10,7 @@
 
 	<ui:define name="formCadastro">
 		<p:growl id="messages" autoUpdate="true" />
+
 		<h:form>
 			<h:panelGroup>
 
@@ -18,39 +19,43 @@
 					<h:panelGrid columns="2" columnClasses="label,value">
 
 						<h:outputLabel value="Nome" />
-						<p:inputText label="nome" value="#{bean.profissional.nome}" required="true" requiredMessage="Campo nome é obrigatório" />
+						<p:inputText label="nome" value="#{bean.profissional.nome}"
+							requiredMessage="Campo nome é obrigatório" />
 						<h:outputLabel value="Endereço" />
-						<p:inputText label="endereço" required="true" requiredMessage="Campo endereço é Obrigatório"
+						<p:inputText label="endereço"
+							requiredMessage="Campo endereço é Obrigatório"
 							value="#{bean.profissional.endereco}" />
 						<h:outputLabel value="Telefone" />
-						<p:inputMask mask="(99)999999999" label="telefone" required="true" requiredMessage="Campo telefone é origatório"
+						<p:inputMask mask="(99)999999999" label="telefone"
+							requiredMessage="Campo telefone é origatório"
 							value="#{bean.profissional.telefone}" />
 						<h:outputLabel value="Cpf" />
-						<p:inputMask mask="999.999.999-99" label="cpf" required="true" requiredMessage="Campo cpf é obrigatório"
-							value="#{bean.profissional.cpf}"/>
+						<p:inputMask mask="999.999.999-99" label="cpf"
+							requiredMessage="Campo cpf é obrigatório"
+							value="#{bean.profissional.cpf}" />
 						<h:outputLabel value="Código do Conselho" />
-						<p:inputText label="cc" required="true" requiredMessage="Campo código do conselho é obrigatório"
-							value="#{bean.profissional.codigoDoConselho}"/>
+						<p:inputText label="cc"
+							requiredMessage="Campo código do conselho é obrigatório"
+							value="#{bean.profissional.codigoDoConselho}" />
 						<h:outputLabel value="Profissão" />
 						<p:inputText label="profissão"
 							value="#{bean.profissional.profissao}"
-							required="true" requiredMessage="Campo profissão é obrigatório" />
+							requiredMessage="Campo profissão é obrigatório" />
 						<h:outputLabel value="Especialidade" />
 						<p:inputText label="Especialidade"
 							value="#{bean.profissional.especialidade}"
-							required="true" requiredMessage="Campo especialidade é obrigatório" />
+							requiredMessage="Campo especialidade é obrigatório" />
 						<h:outputLabel value="Data do Cadastro" />
 						<p:inputMask mask="99/99/9999"
 							value="#{bean.profissional.dataCadastro}"
-							required="true" requiredMessage="Campo data do cadastro é obrigatório" />
+							requiredMessage="Campo data do cadastro é obrigatório" />
 						<h:outputLabel value="Descrição Profissional" />
 						<p:inputTextarea label="dp"
 							value="#{bean.profissional.descProfissional}"
-							required="true" requiredMessage="Campo descrição profissional é obrigatório" />
-						<p:commandButton value="Cadastrar"
-							actionListener="#{bean.addProfissional}" id="form" update=":formTab">
-							<p:ajax execute="@form" render=":tab" />
-
+							requiredMessage="Campo descrição profissional é obrigatório" />
+						<p:commandButton value="Cadastrar" action="#{bean.addPro}"
+							update=":formTab">
+							<p:ajax execute="@form" render="@form :tabelaFuncionario" />
 						</p:commandButton>
 
 					</h:panelGrid>
@@ -63,60 +68,74 @@
 		</h:form>
 
 		<h:form id="formTab">
-			<p:dataTable value="#{bean.listProfissional}" var="list" border="1"
-				id="tab" cellpandding="2" cellspacing="0" widgetVar="listTableFuncionario">
-				
+			<p:growl id="msgs" showDetail="true" />
+			<p:dataTable value="#{bean.listProfissional}" var="listProf"
+				widgetVar="listTable" id="tabelaFuncionario">
+
+
+
 				<f:facet name="header">
-				<p:outputPanel>
-					<h:outputText value="Search all fields:" />
-					<p:inputText id="globalFilter" onkeyup="PF('listTableFuncionario').filter()"
-						style="width:150px" placeholder="Enter keyword" />
-				</p:outputPanel>
-			</f:facet>
-		
+					<p:outputPanel>
+						<h:outputText value="Buscar Profissional:" />
+						<p:inputText id="globalFilter" onkeyup="PF('listTable').filter()"
+							style="width:150px" />
+					</p:outputPanel>
+				</f:facet>
 
 
 
-				<p:column headerText="Nome" filterBy="#{list.nome}" filterMatchMode="contains">
-					<h:outputText value="#{list.nome}" />
+				<p:column headerText="Nome" filterBy="#{listProf.nome}"
+					filterMatchMode="contains">
+					<p:outputLabel value="#{listProf.nome}" />
 				</p:column>
 
-				<p:column headerText="Endereço" filterBy="#{list.endereco}" filterMatchMode="contains">
-					<h:outputText value="#{list.endereco}" />
+				<p:column headerText="Endereço" filterBy="#{listProf.endereco}"
+					filterMatchMode="contains">
+					<h:outputText value="#{listProf.endereco}" />
 				</p:column>
 
-				<p:column headerText="Telefone"  filterBy="#{list.telefone}" filterMatchMode="contains">
-					<h:outputText value="#{list.telefone}" />
+				<p:column headerText="Telefone" filterBy="#{listProf.telefone}"
+					filterMatchMode="contains">
+					<h:outputText value="#{listProf.telefone}" />
 				</p:column>
 
-				<p:column headerText="Cpf"  filterBy="#{list.cpf}" filterMatchMode="contains">
-					<h:outputText value="#{list.cpf}" />
+				<p:column headerText="Cpf" filterBy="#{listProf.cpf}"
+					filterMatchMode="contains">
+					<h:outputText value="#{listProf.cpf}" />
 				</p:column>
 
-				<p:column headerText="Cód. do Conselho"  filterBy="#{list.codigoDoConselho}" filterMatchMode="contains">
-					<h:outputText value="#{list.codigoDoConselho}" />
+				<p:column headerText="Código do Conselho "
+					filterBy="#{listProf.codigoDoConselho}" filterMatchMode="contains">
+					<h:outputText value="#{listProf.codigoDoConselho}" />
 				</p:column>
 
-				<p:column headerText="Descrição Profissional"  filterBy="#{list.descProfissional}" filterMatchMode="contains">
-					<h:outputText value="#{list.descProfissional}" />
+				<p:column headerText="Profissão" filterBy="#{listProf.profissao}"
+					filterMatchMode="contains">
+					<h:outputText value="#{listProf.profissao}" />
 				</p:column>
 
-				<p:column headerText="Profissão"  filterBy="#{list.profissao}" filterMatchMode="contains">
-					<h:outputText value="#{list.profissao}" />
+				<p:column headerText="Especialidade"
+					filterBy="#{listProf.especialidade}" filterMatchMode="contains">
+					<h:outputText value="#{listProf.especialidade}" />
 				</p:column>
 
-				<p:column headerText="Especialidade"  filterBy="#{list.profissao}" filterMatchMode="contains">
-					<h:outputText value="#{list.especialidade}" />
-				</p:column>
-
-				<p:column headerText="Data do Cadastro"  filterBy="#{list.dataCadastro}" filterMatchMode="contains">
-					<h:outputText value="#{list.dataCadastro}" />
+				<p:column headerText="Data do Cadastro"
+					filterBy="#{listProf.dataCadastro}" filterMatchMode="contains">
+					<h:outputText value="#{listProf.dataCadastro}" />
 				</p:column>
 
 
+				<p:column headerText="Descrição Profissional">
+					<h:outputText value="#{listProf.dataCadastro}" />
+				</p:column>
+
+				<p:column style="width:32px;text-align: center">
+					<p:commandButton
+						actionListener="#{bean.removerListaProfissional(listProf)}"
+						icon="ui-icon-trash" title="Excluir" update="tabelaFuncionario" />
+				</p:column>
 
 			</p:dataTable>
-
 
 
 		</h:form>
