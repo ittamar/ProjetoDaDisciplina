@@ -29,8 +29,10 @@
 					<p:menu>
 						<p:submenu label="Menu" position="center">
 							<p:menuitem value="Home" action="index?faces-redirect=true" />
-							<p:menuitem value="Pesquisar Funcionário" action="dadosEntidade?faces-redirect=true" />
-							<p:menuitem value="Administrador" action="login?faces-redirect=true" />
+							<p:menuitem value="Pesquisar Funcionário"
+								action="dadosEntidade?faces-redirect=true"/>
+							<p:menuitem value="Administrador"
+								action="login?faces-redirect=true"/>
 
 						</p:submenu>
 					</p:menu>
@@ -40,10 +42,11 @@
 
 
 			<p:layoutUnit position="center">
-			<ui:insert name="formComentario">
+
+				<ui:insert name="formComentario">
 				</ui:insert>
 				<div id="img">
-				
+
 					<ui:insert name="image">
 
 					</ui:insert>
@@ -51,12 +54,13 @@
 					<ui:insert name="login">
 
 					</ui:insert>
-					</div>
-					<di id="tabelaPesquisa">
+				</div>
+				<div id="tabelaPesquisa">
+				
 					<ui:insert name="pesquisarEntidade">
-					
+
 					</ui:insert>
-					</di>
+				</div>
 			</p:layoutUnit>
 		</p:layout>
 

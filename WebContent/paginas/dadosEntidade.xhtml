@@ -10,6 +10,7 @@
 
 
 		<h:form id="form">
+		
 			<p:dataTable value="#{bean.listProfissional}" var="list" border="1"
 				id="tab" cellpandding="2" cellspacing="0"
 				widgetVar="listTabDadosEntidade">
@@ -24,10 +25,21 @@
 					</p:outputPanel>
 				</f:facet>
 
+				<p:column style="width:30px">
+					<p:rowToggler />
+
+				</p:column>
+
+
+
 
 				<p:column headerText="Nome" filterBy="#{list.nome}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{list.nome}" />
+					<p:commandLink value="#{list.nome}" update=":form tab"
+						oncomplete="PF('dialogReapet').show()" title="Exibir Comentários">
+
+					</p:commandLink>
+
 				</p:column>
 
 				<p:column headerText="Descrição Profissional"
@@ -47,44 +59,96 @@
 					<p:commandLink action="comentario?faces-redirect=true"
 						value="#{list.especialidade}" />
 				</p:column>
-
-				<p:column style="width:32px;text-align: center">
-					<p:commandButton update=":form" oncomplete="PF('dialog').show()"
-						icon="ui-icon-pencil" title="comentar">
-						<f:setPropertyActionListener value="#{listPro}"
-							target="#{bean.profissional}" />
-
+				
+				<p:column>
+				 <p:commandButton  oncomplete="PF('dialog').show()"
+						icon="ui-icon-clipboard" title="postar Comentários">						
 					</p:commandButton>
-				</p:column>
+					
+					</p:column>
+
+
+				<p:rowExpansion>
+					<p:panelGrid columns="2" columnClasses="label,value"
+						style="width:300px">
+
+						<h:outputText value="Nome:" />
+						<h:outputText value="#{list.nome}" />
+
+						<h:outputText value="Endereço" />
+						<h:outputText value="#{list.endereco}" />
+
+						<h:outputText value="Telefone" />
+						<h:outputText value="#{list.telefone}" />
+
+						<h:outputText value="Profissão" />
+						<h:outputText value="#{list.profissao}" />
+
+						<h:outputText value="Epecialidade" />
+						<h:outputText value="#{list.especialidade}" />
+
+
+						<h:outputText value="Data do cadastro" />
+						<h:outputText value="#{list.dataCadastro}" />
+						<h:outputText value="Descrição profissional" />
+						<h:outputText value="#{list.descProfissional}" />
+
+
+
+						<p:commandButton icon="ui-icon-clipboard"
+							title="exibir comentários" update=":form"
+							oncomplete="PF('dialoComentario').show()" />
+
+
+					</p:panelGrid>
+				</p:rowExpansion>
 
 
 			</p:dataTable>
 
 			<p:dialog header="Inseri Comentário" widgetVar="dialog"
 				resizable="false">
-
-
 				<h:panelGrid>
 					<h:outputText value="Nome" />
-					<p:inputText />
+					<h:inputText value="#{beanComment.comentario.nome}" />
 					<h:outputText value="Telefone" />
-					<p:inputText />
+					<h:inputText  />
 					<h:outputText value="Email:" />
-					<p:inputText />
+					<h:inputText  />
 					<h:outputText value="Comentário" />
-					<p:inputTextarea />
-					<p:commandButton  />
-
-
+					<h:inputText  />
+					<p:commandButton  value="Enviar" actionListener="#{bean.entidade.getaddComentarios}" />
+					
 				</h:panelGrid>
-
 
 			</p:dialog>
 
+			<p:dialog header="Comentários postados" widgetVar="dialogReapet"
+				resizable="false">
+				<ui:repeat var="listRepeat" value="#{bean.listProfissional}">
+					<h:panelGrid>
+						<p:outputPanel>
+							<h:panelGrid columns="2" cellpadding="5">
+								<h:outputText value="Nome:" />
+								<p:outputLabel value="#{listRepeat.nome}"
+									style="font-weight: bold" />
+									
+									<h:outputText value="Endereço:" />									
+									<p:outputLabel value="#{listRepeat.endereco}"
+									style="font-weight: bold" />
+									
+									
+
+							</h:panelGrid>
+							<hr />
+						</p:outputPanel>
+					</h:panelGrid>
+				</ui:repeat>
+			</p:dialog>
+
 		</h:form>
-
-
-
+		
+		
 	</ui:define>
 
 </ui:composition>

@@ -6,8 +6,12 @@
 
 <!--  Aqui são listadas todas as entidades  -->
 <class>br.com.util.JPAUtil</class>
+<class>com.br.projetoWeb.entidade.Comentario</class>
+<class>com.br.projetoWeb.entidade.Empresa</class>
 <class>com.br.projetoWeb.entidade.Entidade</class>
+<class>com.br.projetoWeb.entidade.Paciente</class>
 <class>com.br.projetoWeb.entidade.Profissional</class>
+
 <properties>
 <!--  Propriedades JDBC  -->
 <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
