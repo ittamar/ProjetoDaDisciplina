@@ -17,7 +17,6 @@ import com.br.projetoWeb.entidade.Profissional;
 @SessionScoped
 public class Bean implements Serializable {
 
-	private String nome;
 	private Entidade entidade = new Entidade();
 	private Empresa empresa = new Empresa();
 	private Profissional profissional = new Profissional();
@@ -30,6 +29,7 @@ public class Bean implements Serializable {
 		entidade = new Entidade();
 		profissional = new Profissional();
 		empresa = new Empresa();
+
 		// comment = new Comentario();
 
 	}
@@ -39,20 +39,13 @@ public class Bean implements Serializable {
 	 * 
 	 * public void setComment(Comentario comment) { this.comment = comment; }
 	 */
+
 	public List<Empresa> getListEmpresa() {
 		return listEmpresa;
 	}
 
 	public void setListEmpresa(List<Empresa> listEmpresa) {
 		this.listEmpresa = listEmpresa;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public List<Profissional> getListProfissional() {

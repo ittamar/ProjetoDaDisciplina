@@ -10,7 +10,7 @@
 
 
 		<h:form id="form">
-		
+
 			<p:dataTable value="#{bean.listProfissional}" var="list" border="1"
 				id="tab" cellpandding="2" cellspacing="0"
 				widgetVar="listTabDadosEntidade">
@@ -37,14 +37,13 @@
 					filterMatchMode="contains">
 					<p:commandLink value="#{list.nome}" update=":form tab"
 						oncomplete="PF('dialogReapet').show()" title="Exibir Comentários">
-
 					</p:commandLink>
-
 				</p:column>
 
 				<p:column headerText="Descrição Profissional"
 					filterBy="#{list.descProfissional}" filterMatchMode="contains">
 					<h:outputText value="#{list.descProfissional}" />
+
 				</p:column>
 
 
@@ -59,13 +58,13 @@
 					<p:commandLink action="comentario?faces-redirect=true"
 						value="#{list.especialidade}" />
 				</p:column>
-				
+
 				<p:column>
-				 <p:commandButton  oncomplete="PF('dialog').show()"
-						icon="ui-icon-clipboard" title="postar Comentários">						
+					<p:commandButton oncomplete="PF('dialog').show()"
+						icon="ui-icon-clipboard" title="postar Comentários">
 					</p:commandButton>
-					
-					</p:column>
+
+				</p:column>
 
 
 				<p:rowExpansion>
@@ -86,20 +85,12 @@
 
 						<h:outputText value="Epecialidade" />
 						<h:outputText value="#{list.especialidade}" />
-
-
 						<h:outputText value="Data do cadastro" />
 						<h:outputText value="#{list.dataCadastro}" />
 						<h:outputText value="Descrição profissional" />
 						<h:outputText value="#{list.descProfissional}" />
 
-
-
-						<p:commandButton icon="ui-icon-clipboard"
-							title="exibir comentários" update=":form"
-							oncomplete="PF('dialoComentario').show()" />
-
-
+						
 					</p:panelGrid>
 				</p:rowExpansion>
 
@@ -109,16 +100,20 @@
 			<p:dialog header="Inseri Comentário" widgetVar="dialog"
 				resizable="false">
 				<h:panelGrid>
-					<h:outputText value="Nome" />
+                    <h:outputText value="Nome" />
 					<h:inputText value="#{beanComment.comentario.nome}" />
-					<h:outputText value="Telefone" />
-					<h:inputText  />
-					<h:outputText value="Email:" />
-					<h:inputText  />
+					  <h:outputText value="Telefone" />
+					<h:inputText value="#{beanComment.comentario.telefone}" />
+					  <h:outputText value="Email" />
+					<h:inputText value="#{beanComment.comentario.email}" />
+					  <h:outputText value="Data" />
+					 <p:inputMask mask="99/99/9999"  />
 					<h:outputText value="Comentário" />
-					<h:inputText  />
-					<p:commandButton  value="Enviar" actionListener="#{bean.entidade.getaddComentarios}" />
+					<h:inputTextarea  />
 					
+
+
+					<p:commandButton value="Enviar" />
 				</h:panelGrid>
 
 			</p:dialog>
@@ -132,12 +127,10 @@
 								<h:outputText value="Nome:" />
 								<p:outputLabel value="#{listRepeat.nome}"
 									style="font-weight: bold" />
-									
-									<h:outputText value="Endereço:" />									
-									<p:outputLabel value="#{listRepeat.endereco}"
+
+								<h:outputText value="Endereço:" />
+								<p:outputLabel value="#{listRepeat.endereco}"
 									style="font-weight: bold" />
-									
-									
 
 							</h:panelGrid>
 							<hr />
@@ -147,8 +140,8 @@
 			</p:dialog>
 
 		</h:form>
-		
-		
+
+
 	</ui:define>
 
 </ui:composition>

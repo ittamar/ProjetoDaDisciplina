@@ -87,7 +87,7 @@
 
 				<p:column headerText="Nome" filterBy="#{listProf.nome}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{listProf.nome}"/>
+					<p:outputLabel value="#{listProf.nome}" />
 				</p:column>
 
 				<p:column headerText="Endereço" filterBy="#{listProf.endereco}"
@@ -137,38 +137,39 @@
 						icon="ui-icon-trash" title="Excluir" update="tabelaFuncionario" />
 				</p:column>
 				<p:column>
-				 <p:commandButton  oncomplete="PF('adminDialogReapet').show()"
-						icon="ui-icon-clipboard" title="comentarios postados pelos pacientes">						
+					<p:commandButton oncomplete="PF('adminDialogReapet').show()"
+						icon="ui-icon-clipboard"
+						title="comentarios postados pelos pacientes">
 					</p:commandButton>
-					
-					</p:column>
+
+				</p:column>
 
 			</p:dataTable>
 
 			<p:dialog header="Comentário deixados pelos pacientes"
 				widgetVar="comentarioDeixadoUsusuario">
-             
-             <h:outputText value="Nome" />
-						<h:outputText value="Telefone" />
-						<h:outputText value="Email" />
-						<h:outputText value="Comentário" />   
+
+				<h:outputText value="Nome" />
+				<h:outputText value="Telefone" />
+				<h:outputText value="Email" />
+				<h:outputText value="Comentário" />
 				<p:outputPanel>
 					<h:panelGrid cellpadding="5">
 						<h:outputText value="Nome" />
-						
+
 						<h:outputText value="Telefone" />
 						<h:outputText value="Email" />
-						<h:outputText value="Comentário" />                   
+						<h:outputText value="Comentário" />
 					</h:panelGrid>
-					
+
 				</p:outputPanel>
-				
-                <hr />
+
+				<hr />
 			</p:dialog>
-			
-			
-			<p:dialog header="Comentários postados Pelos Pacientes" widgetVar="adminDialogReapet"
-				resizable="false">
+
+
+			<p:dialog header="Comentários postados Pelos Pacientes"
+				widgetVar="adminDialogReapet" resizable="false">
 				<ui:repeat var="listRepeat" value="#{bean.listProfissional}">
 					<h:panelGrid>
 						<p:outputPanel>
@@ -176,6 +177,21 @@
 								<h:outputText value="Nome:" />
 								<h:outputText value="#{listRepeat.nome}"
 									style="font-weight: bold" />
+									
+									<h:outputText value="Telefone:" />
+								<h:outputText 
+									style="font-weight: bold" />
+									
+									<h:outputText value="Email:" />
+								<h:outputText 
+									style="font-weight: bold" />
+									
+									<h:outputText value="Data:" />
+								<h:outputText 
+									style="font-weight: bold" />
+									
+									<h:outputText value="Comentário:" />
+								<h:outputText 	style="font-weight: bold" />
 
 							</h:panelGrid>
 							<hr />

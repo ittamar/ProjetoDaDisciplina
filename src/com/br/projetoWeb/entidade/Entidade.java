@@ -12,7 +12,7 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Entidade {
+public class Entidade extends Comentario {
 
 	// private static final GenerationType strategy = null;
 
@@ -29,20 +29,10 @@ public class Entidade {
 	private String login;
 	private String senha;
 	private List<Comentario> listComentarios = new ArrayList<Comentario>();
-	private Comentario comentario;
 
 	public Entidade() {
 		super();
-		comentario = new Comentario();
 
-	}
-
-	public Comentario getComentario() {
-		return comentario;
-	}
-
-	public void setComentario(Comentario comentario) {
-		this.comentario = comentario;
 	}
 
 	public List<Comentario> getListComentarios() {
@@ -61,10 +51,12 @@ public class Entidade {
 		this.codEntidade = codEntidade;
 	}
 
+	@Override
 	public String getNome() {
 		return nome;
 	}
 
+	@Override
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -77,10 +69,12 @@ public class Entidade {
 		this.endereco = endereco;
 	}
 
+	@Override
 	public String getTelefone() {
 		return telefone;
 	}
 
+	@Override
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
@@ -131,13 +125,6 @@ public class Entidade {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public void getaddComentarios() {
-		this.comentario = new Comentario();
-		this.comentario = comentario;
-		listComentarios.add(comentario);
-
 	}
 
 }

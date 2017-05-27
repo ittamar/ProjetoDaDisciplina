@@ -4,10 +4,28 @@ public class Comentario {
 	private String nome;
 	private String telefone;
 	private String email;
+	private String comentar;
+	private String data;
 	// private Profissional pro;
 
 	public Comentario() {
 		super();
+	}
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	public String getComentar() {
+		return comentar;
+	}
+
+	public void setComentario(String comentar) {
+		this.comentar = comentar;
 	}
 
 	/*
