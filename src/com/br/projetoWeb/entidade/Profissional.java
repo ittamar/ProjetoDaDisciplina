@@ -29,16 +29,4 @@ public class Profissional extends Entidade {
 		this.codigoDoConselho = codigoDoConselho;
 	}
 
-	@Override
-	public String toString() {
-		return "Profissional [codigoDoConselho=" + codigoDoConselho + ", cpf=" + cpf + ", getCpf()=" + getCpf()
-				+ ", getCodigoDoConselho()=" + getCodigoDoConselho() + ", getCodEntidade()=" + getCodEntidade()
-				+ ", getNome()=" + getNome() + ", getEndereco()=" + getEndereco() + ", getTelefone()=" + getTelefone()
-				+ ", getDescProfissional()=" + getDescProfissional() + ", getProfissao()=" + getProfissao()
-				+ ", getEspecialidade()=" + getEspecialidade() + ", getComentarios()=" + getComentarios()
-				+ ", getDataCadastro()=" + getDataCadastro() + ", getLogin()=" + getLogin() + ", getSenha()="
-				+ getSenha() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
-	}
-
 }

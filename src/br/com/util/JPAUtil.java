@@ -1,12 +1,6 @@
 package br.com.util;
 
-import java.io.Serializable;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-
-public class JPAUtil implements Serializable {
+public class JPAUtil {
 	/*
 	 * @PersistenceContext private EntityManager manager;
 	 */
@@ -29,15 +23,18 @@ public class JPAUtil implements Serializable {
 		 * JPAUtil jpa = new JPAUtil(); jpa.criarTabela();
 		 */
 
-		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("conexao");
-
-		EntityManager manager = entityManagerFactory.createEntityManager();
-
+		/*
+		 * EntityManagerFactory entityManagerFactory =
+		 * Persistence.createEntityManagerFactory("conexao");
+		 * 
+		 * EntityManager manager = entityManagerFactory.createEntityManager();
+		 */
 		/*
 		 * Paciente p = new Paciente(); p.setNome("oi");
-		 * 
-		 * manager.persist(p);
-		 * 
+		 */
+		// manager.persist(p);
+
+		/*
 		 * manager.close(); entityManagerFactory.close();
 		 */
 

@@ -25,15 +25,32 @@ public class Entidade {
 	private String descProfissional;
 	private String profissao;
 	private String especialidade;
-	// @OneToMany(mappedBy = "entidade")
-	private List<Comentario> comentarios = new ArrayList<Comentario>();
 	private String dataCadastro;
 	private String login;
 	private String senha;
+	private List<Comentario> listComentarios = new ArrayList<Comentario>();
+	private Comentario comentario;
 
 	public Entidade() {
 		super();
+		comentario = new Comentario();
 
+	}
+
+	public Comentario getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(Comentario comentario) {
+		this.comentario = comentario;
+	}
+
+	public List<Comentario> getListComentarios() {
+		return listComentarios;
+	}
+
+	public void setListComentarios(List<Comentario> listComentarios) {
+		this.listComentarios = listComentarios;
 	}
 
 	public long getCodEntidade() {
@@ -92,14 +109,6 @@ public class Entidade {
 		this.especialidade = especialidade;
 	}
 
-	public List<Comentario> getComentarios() {
-		return comentarios;
-	}
-
-	public void setComentarios(List<Comentario> comentarios) {
-		this.comentarios = comentarios;
-	}
-
 	public String getDataCadastro() {
 		return dataCadastro;
 	}
@@ -124,18 +133,11 @@ public class Entidade {
 		this.senha = senha;
 	}
 
-	public void addComentario() {
-		Comentario comentar = new Comentario();
-		comentarios.add(comentar);
+	public void getaddComentarios() {
+		this.comentario = new Comentario();
+		this.comentario = comentario;
+		listComentarios.add(comentario);
 
-	}
-
-	@Override
-	public String toString() {
-		return "Entidade [codEntidade=" + codEntidade + ", nome=" + nome + ", endereco=" + endereco + ", telefone="
-				+ telefone + ", descProfissional=" + descProfissional + ", profissao=" + profissao + ", especialidade="
-				+ especialidade + ", comentarios=" + comentarios + ", dataCadastro=" + dataCadastro + ", login=" + login
-				+ ", senha=" + senha + "]";
 	}
 
 }

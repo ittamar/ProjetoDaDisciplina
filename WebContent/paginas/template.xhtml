@@ -30,11 +30,8 @@
 					<p:menu>
 						<p:submenu label="Cadastro" position="center">
 							<p:menuitem value="Home" outcome="admin.xhtml" />
-							<p:menuitem value="Adicionar funcionário"
-								outcome="cadastrarfuncionario.xhtml" />
-							<p:menuitem value="Cadastrar Empresa"
-								outcome="cadastrar_empresa.xhtml" />
-							<p:menuitem value="Remover funcionário" action="#{bean.remo}" />
+							<p:menuitem value="Adicionar funcionário" action="cadastrarfuncionario?faces-redirect=true" />
+							<p:menuitem value="Cadastrar Empresa" action="cadastrar_empresa?faces-redirect=true" />
 							<p:menuitem value="Alterar dados" />
 							<p:menuitem value="Exibir Comentários" action="tabelaComentario?faces-redirect=true"/>
 							<p:menuitem value="Sair" outcome="index.xhtml" />
@@ -58,6 +55,7 @@
 				<ui:insert name="formCadastro">
 
 				</ui:insert>
+				
 				<ui:insert name="tabelaComentario">
 				</ui:insert>
 

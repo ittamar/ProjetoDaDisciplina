@@ -11,7 +11,6 @@ import javax.faces.context.FacesContext;
 
 import com.br.projetoWeb.entidade.Empresa;
 import com.br.projetoWeb.entidade.Entidade;
-import com.br.projetoWeb.entidade.Paciente;
 import com.br.projetoWeb.entidade.Profissional;
 
 @ManagedBean(name = "bean")
@@ -21,24 +20,24 @@ public class Bean implements Serializable {
 	private String nome;
 	private Entidade entidade = new Entidade();
 	private Empresa empresa = new Empresa();
-	private Paciente paciente;
 	private Profissional profissional = new Profissional();
 	private List<Empresa> listEmpresa = new ArrayList<Empresa>();
 	private List<Profissional> listProfissional = new ArrayList<Profissional>();
+	// private Comentario comment = new Comentario();
 
 	public Bean() {
 
 		entidade = new Entidade();
 		profissional = new Profissional();
 		empresa = new Empresa();
+		// comment = new Comentario();
 
 	}
 
 	/*
-	 * public Comentario getComentario() { return comentario; }
+	 * public Comentario getComment() { return comment; }
 	 * 
-	 * public void setComentario(Comentario comentario) { this.comentario =
-	 * comentario; }
+	 * public void setComment(Comentario comment) { this.comment = comment; }
 	 */
 	public List<Empresa> getListEmpresa() {
 		return listEmpresa;
@@ -89,13 +88,11 @@ public class Bean implements Serializable {
 		this.empresa = empresa;
 	}
 
-	public Paciente getPaciente() {
-		return paciente;
-	}
-
-	public void setPaciente(Paciente paciente) {
-		this.paciente = paciente;
-	}
+	/*
+	 * public Paciente getPaciente() { return paciente; }
+	 * 
+	 * public void setPaciente(Paciente paciente) { this.paciente = paciente; }
+	 */
 
 	public Entidade getEntidade() {
 		return entidade;

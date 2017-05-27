@@ -1,6 +1,7 @@
 package com.br.projetoWeb.entidade;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
@@ -9,6 +10,7 @@ public class Empresa extends Entidade {
 
 	private String nomeFantasia;
 	private String cnpj;
+	@ManyToOne
 	Profissional profi;
 
 	public Empresa() {
