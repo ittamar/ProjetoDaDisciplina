@@ -127,4 +127,9 @@ public class Entidade extends Comentario {
 		this.senha = senha;
 	}
 
+	public void addCoPro(Comentario co) {
+		listComentarios.add(co);
+
+	}
+
 }

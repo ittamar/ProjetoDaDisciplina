@@ -1,20 +1,18 @@
 package bean;
 
-import java.io.Serializable;
-
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.RequestScoped;
 
 import com.br.projetoWeb.entidade.Comentario;
 import com.br.projetoWeb.entidade.Profissional;
 
 @ManagedBean
-@ViewScoped
-public class BeanComment implements Serializable {
+@RequestScoped
+public class BeanComment {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+
 	private Comentario comentario = new Comentario();
 	private Profissional profissional = new Profissional();
 
@@ -41,9 +39,13 @@ public class BeanComment implements Serializable {
 		this.profissional = profissional;
 	}
 
-	public void getAdd() {
-		comentario = new Comentario();
-		System.out.println(comentario.getNome());
+	public void addComment() {
+		System.out.println(profissional.getEspecialidade());
+		profissional.addCoPro(comentario);
+		this.comentario = new Comentario();
+		this.profissional = new Profissional();
+
+		System.out.println("uuuuuu");
 
 	}
 

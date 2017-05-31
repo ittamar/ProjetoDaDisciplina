@@ -45,7 +45,7 @@
 		<h:form id="formTabEmpresa">
 			<p:dataTable value="#{bean.listEmpresa}" var="listEmpresa" border="1"
 				id="tabEmpresa" cellpandding="2" cellspacing="0"
-				widgetVar="listTable">
+				widgetVar="listTable" editable="true">
 
 				<f:facet name="header">
 					<p:outputPanel>
@@ -58,36 +58,63 @@
 
 				<p:column headerText="Nome Fantasia"
 					filterBy="#{listEmpresa.nomeFantasia}" filterMatchMode="contains">
-					<p:outputLabel value="#{listEmpresa.nomeFantasia}" />
+					
+					<p:cellEditor>
+					<f:facet name="output"><p:outputLabel value="#{listEmpresa.nomeFantasia}" /></f:facet>
+					<f:facet name="input"><p:inputText value="#{listEmpresa.nomeFantasia}" style="widt:100%"/></f:facet>
+					</p:cellEditor>
 					
 					
 				</p:column>
 
 				<p:column headerText="Endereço" filterBy="#{listEmpresa.endereco}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{listEmpresa.endereco}" />
+					
+					<p:cellEditor>
+					<f:facet name="output"><p:outputLabel value="#{listEmpresa.endereco}" /></f:facet>
+					<f:facet name="input"><p:inputText value="#{listEmpresa.endereco}" style="widt:100%"/></f:facet>
+					</p:cellEditor>
+					
 				</p:column>
 
 				<p:column headerText="Telefone" filterBy="#{listEmpresa.telefone}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{listEmpresa.telefone}" />
+					
+					<p:cellEditor>
+					<f:facet name="output"><p:outputLabel value="#{listEmpresa.telefone}" /></f:facet>
+					<f:facet name="input"><p:inputMask mask="(99)9999-9999" value="#{listEmpresa.telefone}" style="widt:100%"/></f:facet>
+					</p:cellEditor>
+					
 				</p:column>
 
 				<p:column headerText="Cnpj" filterBy="#{listEmpresa.cnpj}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{listEmpresa.cnpj}" />
+					
+					<p:cellEditor>
+					<f:facet name="output"><p:outputLabel value="#{listEmpresa.cnpj}" /></f:facet>
+					<f:facet name="input"><p:inputMask mask="999.999.999-99" value="#{listEmpresa.cnpj}" style="widt:100%"/></f:facet>
+					</p:cellEditor>
+					
 				</p:column>
 
 				<p:column headerText="Data de Cadastro"
 					filterBy="#{listEmpresa.dataCadastro}" filterMatchMode="contains">
-					<p:outputLabel
-					 value="#{listEmpresa.dataCadastro}" />
+					
+					<p:cellEditor>
+					<f:facet name="output"><p:outputLabel value="#{listEmpresa.dataCadastro}" /></f:facet>
+					<f:facet name="input"><p:inputMask mask="99/99/9999" value="#{listEmpresa.dataCadastro}" style="widt:100%"/></f:facet>
+					</p:cellEditor>
+					
 				</p:column>
 				
 				<p:column style="width:32px;text-align: center">
 					<p:commandButton  action="#{bean.removerEmpresa(listEmpresa)}"
 						icon="ui-icon-trash" title="Excluir" update="tabEmpresa"/>
 						
+				</p:column>
+				
+				<p:column>
+				<p:rowEditor />
 				</p:column>
 
 			</p:dataTable>

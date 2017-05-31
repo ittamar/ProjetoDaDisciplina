@@ -71,7 +71,7 @@
 			<p:growl id="msgs" showDetail="true" />
 			<p:dataTable value="#{bean.listProfissional}" var="listProf"
 				widgetVar="listTable" id="tabelaFuncionario" selectionMode="single"
-				selection="#{bean.profissional}" rowKey="#{listProf.nome}">
+				selection="#{bean.profissional}" rowKey="#{listProf.nome}" editable="true">
 
 
 
@@ -87,32 +87,60 @@
 
 				<p:column headerText="Nome" filterBy="#{listProf.nome}"
 					filterMatchMode="contains">
-					<p:outputLabel value="#{listProf.nome}" />
+					
+					<p:cellEditor>
+					<f:facet name="output"><p:outputLabel value="#{listProf.nome}" /></f:facet>
+					<f:facet name="input"><p:inputText value="#{listProf.nome}" style="widt:100%"/></f:facet>
+					</p:cellEditor>
+					
 				</p:column>
 
 				<p:column headerText="Endereço" filterBy="#{listProf.endereco}"
-					filterMatchMode="contains">
-					<h:outputText value="#{listProf.endereco}" />
+					filterMatchMode="contains">  
+					
+					<p:cellEditor>
+					<f:facet name="output"><p:outputLabel value="#{listProf.endereco}" /></f:facet>
+					<f:facet name="input"><p:inputText value="#{listProf.endereco}" style="widt:100%"/></f:facet>
+					</p:cellEditor>
+					
 				</p:column>
 
 				<p:column headerText="Telefone" filterBy="#{listProf.telefone}"
-					filterMatchMode="contains">
-					<h:outputText value="#{listProf.telefone}" />
+					filterMatchMode="contains"> 
+					
+					<p:cellEditor>
+					<f:facet name="output"><p:outputLabel value="#{listProf.telefone}" /></f:facet>
+					<f:facet name="input"><p:inputText value="#{listProf.telefone}" style="widt:100%"/></f:facet>
+					</p:cellEditor>
+					
 				</p:column>
 
 				<p:column headerText="Cpf" filterBy="#{listProf.cpf}"
 					filterMatchMode="contains">
-					<h:outputText value="#{listProf.cpf}" />
+					
+					<p:cellEditor>
+					<f:facet name="output"><p:outputLabel value="#{listProf.cpf}" /></f:facet>
+					<f:facet name="input"><p:inputText value="#{listProf.cpf}" style="widt:100%"/></f:facet>
+					</p:cellEditor>
+					
 				</p:column>
 
 				<p:column headerText="Código do Conselho "
 					filterBy="#{listProf.codigoDoConselho}" filterMatchMode="contains">
-					<h:outputText value="#{listProf.codigoDoConselho}" />
+					
+					<p:cellEditor>
+					<f:facet name="output"><p:outputLabel value="#{listProf.codigoDoConselho}" /></f:facet>
+					<f:facet name="input"><p:inputText value="#{listProf.codigoDoConselho}" style="widt:100%"/></f:facet>
+					</p:cellEditor>
+					
 				</p:column>
 
 				<p:column headerText="Profissão" filterBy="#{listProf.profissao}"
 					filterMatchMode="contains">
-					<h:outputText value="#{listProf.profissao}" />
+				<p:cellEditor>
+					<f:facet name="output"><p:outputLabel value="#{listProf.profissao}" /></f:facet>
+					<f:facet name="input"><p:inputText value="#{listProf.profissao}" style="widt:100%"/></f:facet>
+					</p:cellEditor>
 				</p:column>
 
 				<p:column headerText="Especialidade"
@@ -122,12 +150,18 @@
 
 				<p:column headerText="Data do Cadastro"
 					filterBy="#{listProf.dataCadastro}" filterMatchMode="contains">
-					<h:outputText value="#{listProf.dataCadastro}" />
+					<p:cellEditor>
+					<f:facet name="output"><p:outputLabel value="#{listProf.especialidade}" /></f:facet>
+					<f:facet name="input"><p:inputText value="#{listProf.especialidade}" style="widt:100%"/></f:facet>
+					</p:cellEditor>
 				</p:column>
 
 
 				<p:column headerText="Descrição Profissional">
-					<h:outputText value="#{listProf.dataCadastro}" />
+					<p:cellEditor>
+					<f:facet name="output"><p:outputLabel value="#{listProf.descProfissional}" /></f:facet>
+					<f:facet name="input"><p:inputText value="#{listProf.descProfissional}" style="widt:100%"/></f:facet>
+					</p:cellEditor>
 
 				</p:column>
 
@@ -142,6 +176,10 @@
 						title="comentarios postados pelos pacientes">
 					</p:commandButton>
 
+				</p:column>
+				
+				<p:column>
+				<p:rowEditor/>
 				</p:column>
 
 			</p:dataTable>
@@ -177,21 +215,18 @@
 								<h:outputText value="Nome:" />
 								<h:outputText value="#{listRepeat.nome}"
 									style="font-weight: bold" />
-									
-									<h:outputText value="Telefone:" />
-								<h:outputText 
-									style="font-weight: bold" />
-									
-									<h:outputText value="Email:" />
-								<h:outputText 
-									style="font-weight: bold" />
-									
-									<h:outputText value="Data:" />
-								<h:outputText 
-									style="font-weight: bold" />
-									
-									<h:outputText value="Comentário:" />
-								<h:outputText 	style="font-weight: bold" />
+
+								<h:outputText value="Telefone:" />
+								<h:outputText style="font-weight: bold" />
+
+								<h:outputText value="Email:" />
+								<h:outputText style="font-weight: bold" />
+
+								<h:outputText value="Data:" />
+								<h:outputText style="font-weight: bold" />
+
+								<h:outputText value="Comentário:" />
+								<h:outputText style="font-weight: bold" />
 
 							</h:panelGrid>
 							<hr />

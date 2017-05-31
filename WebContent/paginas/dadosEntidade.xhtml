@@ -10,12 +10,14 @@
 
 
 		<h:form id="form">
+		
+		
 
 			<p:dataTable value="#{bean.listProfissional}" var="list" border="1"
 				id="tab" cellpandding="2" cellspacing="0"
 				widgetVar="listTabDadosEntidade">
 
-
+            
 				<f:facet name="header">
 					<p:outputPanel>
 						<h:outputText value="Search all fields:" />
@@ -36,7 +38,7 @@
 				<p:column headerText="Nome" filterBy="#{list.nome}"
 					filterMatchMode="contains">
 					<p:commandLink value="#{list.nome}" update=":form tab"
-						oncomplete="PF('dialogReapet').show()" title="Exibir Comentários">
+						oncomplete="PF('dialogReapet').show()" title="Postar comentário">
 					</p:commandLink>
 				</p:column>
 
@@ -63,6 +65,7 @@
 					<p:commandButton oncomplete="PF('dialog').show()"
 						icon="ui-icon-clipboard" title="postar Comentários">
 					</p:commandButton>
+					<p:inputText value="#{bean.comentario.nome}" />
 
 				</p:column>
 
@@ -89,38 +92,17 @@
 						<h:outputText value="#{list.dataCadastro}" />
 						<h:outputText value="Descrição profissional" />
 						<h:outputText value="#{list.descProfissional}" />
-
 						
 					</p:panelGrid>
 				</p:rowExpansion>
 
-
 			</p:dataTable>
 
-			<p:dialog header="Inseri Comentário" widgetVar="dialog"
-				resizable="false">
-				<h:panelGrid>
-                    <h:outputText value="Nome" />
-					<h:inputText value="#{beanComment.comentario.nome}" />
-					  <h:outputText value="Telefone" />
-					<h:inputText value="#{beanComment.comentario.telefone}" />
-					  <h:outputText value="Email" />
-					<h:inputText value="#{beanComment.comentario.email}" />
-					  <h:outputText value="Data" />
-					 <p:inputMask mask="99/99/9999"  />
-					<h:outputText value="Comentário" />
-					<h:inputTextarea  />
-					
-
-
-					<p:commandButton value="Enviar" />
-				</h:panelGrid>
-
-			</p:dialog>
+		
 
 			<p:dialog header="Comentários postados" widgetVar="dialogReapet"
 				resizable="false">
-				<ui:repeat var="listRepeat" value="#{bean.listProfissional}">
+				<ui:repeat var="listRepeat" value="#{bean.profissional.listComentarios}">
 					<h:panelGrid>
 						<p:outputPanel>
 							<h:panelGrid columns="2" cellpadding="5">
@@ -128,8 +110,8 @@
 								<p:outputLabel value="#{listRepeat.nome}"
 									style="font-weight: bold" />
 
-								<h:outputText value="Endereço:" />
-								<p:outputLabel value="#{listRepeat.endereco}"
+								<h:outputText value="Telefone:" />
+								<p:outputLabel value="#{listRepeat.telefone}"
 									style="font-weight: bold" />
 
 							</h:panelGrid>
@@ -139,9 +121,15 @@
 				</ui:repeat>
 			</p:dialog>
 
+
+			
+
 		</h:form>
-
-
+		
+		
+	
+			 
+           
 	</ui:define>
 
 </ui:composition>

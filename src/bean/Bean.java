@@ -7,8 +7,12 @@ import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.html.HtmlDataTable;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.event.SelectEvent;
+
+import com.br.projetoWeb.entidade.Comentario;
 import com.br.projetoWeb.entidade.Empresa;
 import com.br.projetoWeb.entidade.Entidade;
 import com.br.projetoWeb.entidade.Profissional;
@@ -17,28 +21,42 @@ import com.br.projetoWeb.entidade.Profissional;
 @SessionScoped
 public class Bean implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Entidade entidade = new Entidade();
 	private Empresa empresa = new Empresa();
 	private Profissional profissional = new Profissional();
 	private List<Empresa> listEmpresa = new ArrayList<Empresa>();
 	private List<Profissional> listProfissional = new ArrayList<Profissional>();
-	// private Comentario comment = new Comentario();
+	private Comentario comentario;
+	private HtmlDataTable htmlDataTable;
 
 	public Bean() {
 
 		entidade = new Entidade();
 		profissional = new Profissional();
 		empresa = new Empresa();
-
-		// comment = new Comentario();
+		comentario = new Comentario();
 
 	}
 
-	/*
-	 * public Comentario getComment() { return comment; }
-	 * 
-	 * public void setComment(Comentario comment) { this.comment = comment; }
-	 */
+	public HtmlDataTable getHtmlDataTable() {
+		return htmlDataTable;
+	}
+
+	public void setHtmlDataTable(HtmlDataTable htmlDataTable) {
+		this.htmlDataTable = htmlDataTable;
+	}
+
+	public Comentario getComentario() {
+		return comentario;
+	}
+
+	public void setComentario(Comentario comentario) {
+		this.comentario = comentario;
+	}
 
 	public List<Empresa> getListEmpresa() {
 		return listEmpresa;
@@ -80,12 +98,6 @@ public class Bean implements Serializable {
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
 	}
-
-	/*
-	 * public Paciente getPaciente() { return paciente; }
-	 * 
-	 * public void setPaciente(Paciente paciente) { this.paciente = paciente; }
-	 */
 
 	public Entidade getEntidade() {
 		return entidade;
@@ -129,6 +141,14 @@ public class Bean implements Serializable {
 		this.empresa = new Empresa();
 		listEmpresa.remove(empresa);
 
+	}
+
+	public void addComentario(SelectEvent e) {
+		System.out.println("ola java doido1");
+		profissional.addCoPro(comentario);
+		profissional = new Profissional();
+		comentario = new Comentario();
+		System.out.println("ola java doido2");
 	}
 
 }

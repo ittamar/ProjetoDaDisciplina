@@ -28,11 +28,6 @@ public class Comentario {
 		this.comentar = comentar;
 	}
 
-	/*
-	 * public Profissional getPro() { return pro; }
-	 * 
-	 * public void setPro(Profissional pro) { this.pro = pro; }
-	 */
 	public String getNome() {
 		return nome;
 	}
@@ -55,10 +50,6 @@ public class Comentario {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public void addComentarios() {
-
 	}
 
 }
